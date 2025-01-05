@@ -1,7 +1,9 @@
+import { Container } from "../components/ui/Container";
+
 export const Skills = () => {
   return (
-    <div>
+    <Container>
       <p>Skills</p>
-    </div>
+    </Container>
   );
 };

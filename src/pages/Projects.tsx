@@ -1,7 +1,9 @@
+import { Container } from "../components/ui/Container";
+
 export const Projects = () => {
   return (
-    <div>
+    <Container>
       <p>Projects</p>
-    </div>
+    </Container>
   );
 };

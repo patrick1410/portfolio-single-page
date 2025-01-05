@@ -2,9 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 
-/* html,
+html,
 body {
   height: 100vh;
-} */
+}
+
+/* Navigation */
+nav > ul > li {
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+}

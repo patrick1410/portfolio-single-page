@@ -1,10 +1,11 @@
 import Squares from "./squares-bg/Squares";
 import { Navigation } from "./Navigation";
 import { Outlet } from "react-router";
+import { Container } from "./ui/Container";
 
 export const Root = () => {
   return (
-    <div>
+    <Container>
       <div className="squares-bg">
         <Squares
           speed={0.5}
@@ -16,6 +17,6 @@ export const Root = () => {
       </div>
       <Navigation />
       <Outlet />
-    </div>
+    </Container>
   );
 };

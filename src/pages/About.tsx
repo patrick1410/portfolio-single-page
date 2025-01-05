@@ -1,7 +1,9 @@
+import { Container } from "../components/ui/Container";
+
 export const About = () => {
   return (
-    <div>
+    <Container>
       <p>About</p>
-    </div>
+    </Container>
   );
 };
