@@ -1,4 +1,16 @@
-/* NO POINTER EVENTS:NONE HERE!? */
+/* POINTER EVENTS SHOULD BE NONE IN THE WRAPPER SO THE SQUARES ARE FILLED ON HOVER */
+/* IF SOMETHING CLICKABLE DOESNT WORK PUT POINTER EVENTS TO AUTO (IN THE CHILD) */
+/* DELETE THE POINTER-EVENTS:NONE LATER (MAYBE) LIKE IN THE HOME ROUTE */
+
+.home {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.contact-btn {
+  pointer-events: auto;
+}
 
 .image {
   width: 250px;

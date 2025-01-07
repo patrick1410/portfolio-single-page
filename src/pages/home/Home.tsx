@@ -28,7 +28,7 @@ export const Home = () => {
   };
 
   return (
-    <Box gridArea="main">
+    <Box gridArea="main" className="home">
       <Center height="100%">
         <HStack>
           <VStack alignItems="flex-start">
@@ -60,7 +60,7 @@ export const Home = () => {
             </div>
             <div style={{ height: 40 }}>
               {startContactBtn && (
-                <Button className="animate__animated animate__backInUp">
+                <Button className="animate__animated animate__backInUp contact-btn">
                   <Link to={"/contact"}>Contact Me</Link>
                 </Button>
               )}
