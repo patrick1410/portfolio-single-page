@@ -15,6 +15,7 @@ export const Footer = () => {
               _hover={{ textDecoration: "none" }}
               href="https://www.linkedin.com/in/patrick-mankaryous/"
               isExternal
+              pointerEvents="auto"
             >
               Patrick Mankaryous{" "}
             </Link>
