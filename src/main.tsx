@@ -1,18 +1,28 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
-import "./index.css";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router";
-import { Root } from "./components/Root.tsx";
+import { Root } from "./components/root/Root.tsx";
 import { Home } from "./pages/Home.tsx";
 import { About } from "./pages/About.tsx";
 import { Skills } from "./pages/Skills.tsx";
 import { Projects } from "./pages/Projects.tsx";
 import { Contact } from "./pages/Contact.tsx";
 
+const theme = extendTheme({
+  styles: {
+    global: {
+      "*": { margin: 0, padding: 0, boxSizing: "border-box" },
+      p: { color: "#FFF" },
+      html: { height: "100%" },
+      body: { height: "100%" },
+    },
+  },
+});
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />}>

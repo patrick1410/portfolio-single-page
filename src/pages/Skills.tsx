@@ -1,9 +1,9 @@
-import { Container } from "../components/ui/Container";
+import { Box } from "@chakra-ui/react";
 
 export const Skills = () => {
   return (
-    <Container>
+    <Box gridArea="main">
       <p>Skills</p>
-    </Container>
+    </Box>
   );
 };

@@ -1,0 +1,15 @@
+.root {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    "nav nav nav nav nav nav"
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"
+    "footer footer footer footer footer footer";
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}

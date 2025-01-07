@@ -1,11 +1,17 @@
 import { UnorderedList, ListItem, Flex, Text } from "@chakra-ui/react";
 import { Link } from "react-router";
+import "./Navigation.css";
 
 export const Navigation = () => {
   const name = "<PM/>";
 
   return (
-    <Flex as="nav" justifyContent="space-around" alignItems="center">
+    <Flex
+      as="nav"
+      gridArea="nav"
+      justifyContent="space-around"
+      alignItems="center"
+    >
       <Text fontSize={32}>{name}</Text>
 
       <UnorderedList listStyleType="none" display="flex" flexDir="row">
