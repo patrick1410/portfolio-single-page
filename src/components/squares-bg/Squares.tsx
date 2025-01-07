@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import "./Squares.css";
 
+// fix type errors later
+
 const Squares = ({
   direction = "right",
   speed = 1,

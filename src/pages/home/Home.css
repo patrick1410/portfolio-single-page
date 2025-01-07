@@ -1,0 +1,18 @@
+.image {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #008000 !important;
+  animation: rock 3s ease-in-out infinite;
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(5deg); /* Starting position */
+  }
+  50% {
+    transform: rotate(-5deg); /* Rotate to the left */
+  }
+  100% {
+    transform: rotate(5deg); /* Rotate back to the right */
+  }
+}
