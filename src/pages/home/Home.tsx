@@ -41,27 +41,30 @@ export const Home = () => {
             >
               My name is Patrick Mankaryous
             </Text>
-
-            {startSplitText && (
-              <SplitText
-                text="And I'm a Developer"
-                delay={100}
-                animationFrom={{
-                  opacity: 0,
-                  transform: "translate3d(0,50px,0)",
-                }}
-                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-                easing="easeOutCubic"
-                threshold={0.2}
-                rootMargin="-50px"
-                onLetterAnimationComplete={handleStartContactBtn}
-              />
-            )}
-            {startContactBtn && (
-              <Button className="animate__animated animate__backInUp">
-                <Link to={"/contact"}>Contact Me</Link>
-              </Button>
-            )}
+            <div style={{ height: 24 }}>
+              {startSplitText && (
+                <SplitText
+                  text="And I'm a Developer"
+                  delay={100}
+                  animationFrom={{
+                    opacity: 0,
+                    transform: "translate3d(0,50px,0)",
+                  }}
+                  animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                  easing="easeOutCubic"
+                  threshold={0.2}
+                  rootMargin="-50px"
+                  onLetterAnimationComplete={handleStartContactBtn}
+                />
+              )}
+            </div>
+            <div style={{ height: 40 }}>
+              {startContactBtn && (
+                <Button className="animate__animated animate__backInUp">
+                  <Link to={"/contact"}>Contact Me</Link>
+                </Button>
+              )}
+            </div>
           </VStack>
           <Avatar
             className="image"

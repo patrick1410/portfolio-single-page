@@ -5,16 +5,22 @@ import { Footer } from "../footer/Footer";
 import { Box } from "@chakra-ui/react";
 import "./Root.css";
 
+import { useRef } from "react";
+import Crosshair from "../crosshair/Crosshair";
+
 export const Root = () => {
+  const containerRef = useRef(null);
+
   return (
-    <Box className="root">
+    <Box className="root" ref={containerRef}>
+      <Crosshair containerRef={containerRef} color="#DC143C" />
       <Box className="squares-bg">
         <Squares
           speed={0.5}
           squareSize={40}
           direction="down"
           borderColor="#008000"
-          hoverFillColor="red" //rgba(34,34,34,0.7) // fix this problem later
+          hoverFillColor="rgba(34,34,34,0.7)"
         />
       </Box>
       <Navigation />

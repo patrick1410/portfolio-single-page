@@ -8,6 +8,7 @@ export const Navigation = () => {
   return (
     <Flex
       as="nav"
+      className="navigation"
       gridArea="nav"
       justifyContent="space-around"
       alignItems="center"
