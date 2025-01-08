@@ -30,7 +30,7 @@ export const Intro = ({ introRef }) => {
   };
 
   return (
-    <Box ref={introRef} className="intro" py={20} w="100%">
+    <Box ref={introRef} className="intro" py={20}>
       <Box w="60%" m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"

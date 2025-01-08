@@ -3,6 +3,7 @@ import Crosshair from "../crosshair/Crosshair";
 import Squares from "../squares-bg/Squares";
 import { Navigation } from "../navigation/Navigation";
 import { Intro } from "../intro/Intro";
+import { About } from "../about/About";
 import { Footer } from "../footer/Footer";
 import { useRef } from "react";
 import { Skills } from "../skills/Skills";
@@ -47,6 +48,7 @@ export const App = () => {
       </Box>
       <Navigation handleScroll={handleScroll} />
       <Intro introRef={introRef} />
+      <About aboutRef={aboutRef} />
       <Skills skillsRef={skillsRef} />
       <Footer />
     </Box>
