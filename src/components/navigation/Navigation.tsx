@@ -12,9 +12,9 @@ export const Navigation = () => {
       <UnorderedList
         listStyleType="none"
         display="flex"
-        justifyContent="space-evenly"
+        justifyContent="space-between"
         alignItems="center"
-        w="80%"
+        w="60%"
         m={0}
       >
         <ListItem>

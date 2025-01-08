@@ -7,7 +7,6 @@ import {
   Avatar,
   Text,
   HStack,
-  Center,
   Button,
   Link,
 } from "@chakra-ui/react";
@@ -31,16 +30,14 @@ export const Intro = () => {
   };
 
   return (
-    <Box className="intro" py={20}>
-      <Center>
+    <Box className="intro" py={20} w="100%">
+      <Box w="60%" m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"
-          w="70%"
           display="flex"
-          justifyContent="space-evenly"
           onAnimationEnd={handleStartSplitText}
         >
-          <VStack alignItems="flex-start">
+          <VStack alignItems="flex-start" w="50%">
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
@@ -77,7 +74,7 @@ export const Intro = () => {
             src={profilePicture}
           />
         </HStack>
-      </Center>
+      </Box>
     </Box>
   );
 };
