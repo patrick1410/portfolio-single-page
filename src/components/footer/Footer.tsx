@@ -6,7 +6,11 @@ export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <Center gridArea="footer" className="footer" as="footer">
+    <Center
+      gridArea="footer"
+      className="footer animate__animated animate__fadeInUp"
+      as="footer"
+    >
       <Box>
         <Box>
           <Text>

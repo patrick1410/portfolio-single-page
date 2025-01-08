@@ -1,5 +1,9 @@
-.test {
+.skills {
   position: relative;
   z-index: 10; /* Higher than .squares-bg */
   pointer-events: none;
+}
+
+.skills-grid > div {
+  border-radius: 0.5rem;
 }

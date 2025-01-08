@@ -3,7 +3,12 @@ import "./Navigation.css";
 
 export const Navigation = () => {
   return (
-    <Flex as="nav" className="navigation" py={10} justifyContent="center">
+    <Flex
+      as="nav"
+      className="navigation animate__animated animate__fadeInDown"
+      py={10}
+      justifyContent="center"
+    >
       <UnorderedList
         listStyleType="none"
         display="flex"

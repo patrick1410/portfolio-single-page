@@ -14,6 +14,8 @@ import {
 import SplitText from "../split-text/SplitText";
 import { Header } from "../header/Header";
 
+// CHECK THESE ANIMATIONS LATER !
+
 export const Intro = () => {
   const [startSplitText, setStartSplitText] = useState(false);
   const [startContactBtn, setStartContactBtn] = useState(false);
@@ -32,7 +34,7 @@ export const Intro = () => {
     <Box className="intro" py={20}>
       <Center>
         <HStack
-          className="animate__animated animate__backInLeft"
+          className="animate__animated animate__fadeInLeft"
           w="70%"
           display="flex"
           justifyContent="space-evenly"
@@ -46,7 +48,7 @@ export const Intro = () => {
               {startSplitText && (
                 <SplitText
                   text="And I'm a Developer"
-                  delay={100}
+                  delay={50}
                   animationFrom={{
                     opacity: 0,
                     transform: "translate3d(0,50px,0)",

@@ -4,16 +4,12 @@ import Squares from "../squares-bg/Squares";
 import { Navigation } from "../navigation/Navigation";
 import { Intro } from "../intro/Intro";
 import { Footer } from "../footer/Footer";
-import "./App.css";
-import "../squares-bg/Squares.css";
-import "../navigation/Navigation.css";
-import "../footer/Footer.css";
-import "../intro/Intro.css";
 import { useRef } from "react";
-import { Test } from "../test/Test";
+import { Skills } from "../skills/Skills";
 
 export const App = () => {
   const containerRef = useRef(null);
+
   return (
     <Box className="app" ref={containerRef}>
       <Crosshair containerRef={containerRef} color="#DC143C" />
@@ -28,7 +24,7 @@ export const App = () => {
       </Box>
       <Navigation />
       <Intro />
-      <Test />
+      <Skills />
       <Footer />
     </Box>
   );
