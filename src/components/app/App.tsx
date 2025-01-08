@@ -31,6 +31,16 @@ export const App = () => {
 
     if (targetRef && targetRef.current) {
       targetRef.current.scrollIntoView({ behavior: "smooth" });
+
+      // SCROLLS TO THE VERY TOP
+      if (section === "introRef") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // ADD PT={20} TO EVERY SECTION COMPONENT FOR SMOOTH SCROLLINTOVIEW!
     }
   };
 

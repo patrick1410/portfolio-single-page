@@ -7,10 +7,11 @@ export const About = ({ aboutRef }) => {
     <Box
       ref={aboutRef}
       className="about animate__animated animate__fadeInRight"
+      pt={20}
     >
       <Box w="60%" m="auto">
         <Header text="About" />
-        <Box w={"75%"} mb={10}>
+        <Box w="75%" mb={10}>
           <Text mb={2}>
             Hi, I'm Patrick, a dedicated software developer from Amsterdam 💻📍.
             I have a passion for creating innovative and efficient solutions

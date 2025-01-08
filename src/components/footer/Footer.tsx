@@ -7,7 +7,6 @@ export const Footer = () => {
 
   return (
     <Center
-      gridArea="footer"
       className="footer animate__animated animate__fadeInUp"
       as="footer"
       py={10}

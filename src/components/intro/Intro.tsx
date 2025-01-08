@@ -3,12 +3,12 @@ import "./Intro.css";
 import { useState } from "react";
 import {
   Box,
-  VStack,
   Avatar,
   Text,
   HStack,
   Button,
   Link,
+  Flex,
 } from "@chakra-ui/react";
 import SplitText from "../split-text/SplitText";
 import { Header } from "../header/Header";
@@ -30,18 +30,18 @@ export const Intro = ({ introRef }) => {
   };
 
   return (
-    <Box ref={introRef} className="intro" py={20}>
+    <Box ref={introRef} className="intro" pt={20}>
       <Box w="60%" m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"
           display="flex"
           onAnimationEnd={handleStartSplitText}
         >
-          <VStack alignItems="flex-start" w="50%">
+          <Flex flexDir="column" alignItems="flex-start" w="50%">
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
-            <div style={{ height: 24 }}>
+            <div style={{ height: 24, marginBottom: 8 }}>
               {startSplitText && (
                 <SplitText
                   text="And I'm a Developer"
@@ -65,7 +65,7 @@ export const Intro = ({ introRef }) => {
                 </Button>
               )}
             </div>
-          </VStack>
+          </Flex>
           <Avatar
             className="image"
             w={250}

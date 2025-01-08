@@ -8,6 +8,7 @@ export const Skills = ({ skillsRef }) => {
     <Box
       ref={skillsRef}
       className="skills animate__animated animate__fadeInLeft"
+      pt={20}
     >
       <Box w="60%" m="auto">
         <Header text="Skills" />
