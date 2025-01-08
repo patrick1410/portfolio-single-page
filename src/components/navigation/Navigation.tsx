@@ -1,35 +1,31 @@
-import { UnorderedList, ListItem, Flex, Text } from "@chakra-ui/react";
-import { Link } from "react-router";
+import { UnorderedList, ListItem, Link, Flex } from "@chakra-ui/react";
 import "./Navigation.css";
 
 export const Navigation = () => {
-  const name = "<PM/>";
-
   return (
-    <Flex
-      as="nav"
-      className="navigation"
-      gridArea="nav"
-      justifyContent="space-around"
-      alignItems="center"
-    >
-      <Text fontSize={32}>{name}</Text>
-
-      <UnorderedList listStyleType="none" display="flex" flexDir="row">
+    <Flex as="nav" className="navigation" py={10} justifyContent="center">
+      <UnorderedList
+        listStyleType="none"
+        display="flex"
+        justifyContent="space-evenly"
+        alignItems="center"
+        w="80%"
+        m={0}
+      >
         <ListItem>
-          <Link to={"/"}>Home</Link>
+          <Link>Intro</Link>
         </ListItem>
         <ListItem>
-          <Link to={"/about"}>About</Link>
+          <Link>About</Link>
         </ListItem>
         <ListItem>
-          <Link to={"/skills"}>Skills</Link>
+          <Link>Skills</Link>
         </ListItem>
         <ListItem>
-          <Link to={"/projects"}>Projects</Link>
+          <Link>Projects</Link>
         </ListItem>
         <ListItem>
-          <Link to={"/contact"}>Contact</Link>
+          <Link>Contact</Link>
         </ListItem>
       </UnorderedList>
     </Flex>

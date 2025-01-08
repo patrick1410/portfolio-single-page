@@ -1,5 +1,5 @@
 import profilePicture from "../../assets/pf.jpg";
-import "./Home.css";
+import "./Intro.css";
 import { useState } from "react";
 import {
   Box,
@@ -9,11 +9,11 @@ import {
   HStack,
   Center,
   Button,
+  Link,
 } from "@chakra-ui/react";
-import SplitText from "../../components/split-text/SplitText";
-import { Link } from "react-router";
+import SplitText from "../split-text/SplitText";
 
-export const Home = () => {
+export const Intro = () => {
   const [startSplitText, setStartSplitText] = useState(false);
   const [startContactBtn, setStartContactBtn] = useState(false);
 
@@ -28,19 +28,18 @@ export const Home = () => {
   };
 
   return (
-    <Box gridArea="main" className="home">
-      <Center height="100%">
-        <HStack>
+    <Box className="intro" py={20}>
+      <Center>
+        <HStack
+          className="animate__animated animate__backInLeft"
+          w="70%"
+          display="flex"
+          justifyContent="space-evenly"
+          onAnimationEnd={handleStartSplitText}
+        >
           <VStack alignItems="flex-start">
-            <Text className="animate__animated animate__backInDown">
-              Hello World!
-            </Text>
-            <Text
-              className="animate__animated animate__backInRight"
-              onAnimationEnd={handleStartSplitText}
-            >
-              My name is Patrick Mankaryous
-            </Text>
+            <Text>Hello World!</Text>
+            <Text>My name is Patrick Mankaryous</Text>
             <div style={{ height: 24 }}>
               {startSplitText && (
                 <SplitText
@@ -61,7 +60,7 @@ export const Home = () => {
             <div style={{ height: 40 }}>
               {startContactBtn && (
                 <Button className="animate__animated animate__backInUp contact-btn">
-                  <Link to={"/contact"}>Contact Me</Link>
+                  <Link>Contact Me</Link>
                 </Button>
               )}
             </div>

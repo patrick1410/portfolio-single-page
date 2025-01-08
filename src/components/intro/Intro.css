@@ -2,7 +2,7 @@
 /* IF SOMETHING CLICKABLE DOESNT WORK PUT POINTER EVENTS TO AUTO (IN THE CHILD) */
 /* DELETE THE POINTER-EVENTS:NONE LATER (MAYBE) LIKE IN THE HOME ROUTE */
 
-.home {
+.intro {
   position: relative;
   z-index: 10;
   pointer-events: none;

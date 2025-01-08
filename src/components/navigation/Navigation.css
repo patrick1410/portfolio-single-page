@@ -1,15 +1,20 @@
 .navigation {
-  position: relative;
-  z-index: 10; /* Higher than .squares-bg */
+  position: sticky;
+  z-index: 20; /* Higher than .squares-bg */
   pointer-events: none;
+  top: 0; /* Stick to the top of the viewport */
 }
 
 nav > ul > li {
   text-transform: uppercase;
   padding: 0 1.5rem;
   color: #fff;
+  border: 2px solid #008000;
+  border-radius: 10px;
+  background-color: #000a0a;
 }
 
 nav > ul > li > a {
   pointer-events: auto;
+  cursor: pointer;
 }

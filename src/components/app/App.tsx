@@ -1,18 +1,21 @@
+import { Box } from "@chakra-ui/react";
+import Crosshair from "../crosshair/Crosshair";
 import Squares from "../squares-bg/Squares";
 import { Navigation } from "../navigation/Navigation";
-import { Outlet } from "react-router";
+import { Intro } from "../intro/Intro";
 import { Footer } from "../footer/Footer";
-import { Box } from "@chakra-ui/react";
-import "./Root.css";
-
+import "./App.css";
+import "../squares-bg/Squares.css";
+import "../navigation/Navigation.css";
+import "../footer/Footer.css";
+import "../intro/Intro.css";
 import { useRef } from "react";
-import Crosshair from "../crosshair/Crosshair";
+import { Test } from "../test/Test";
 
-export const Root = () => {
+export const App = () => {
   const containerRef = useRef(null);
-
   return (
-    <Box className="root" ref={containerRef}>
+    <Box className="app" ref={containerRef}>
       <Crosshair containerRef={containerRef} color="#DC143C" />
       <Box className="squares-bg">
         <Squares
@@ -24,7 +27,8 @@ export const Root = () => {
         />
       </Box>
       <Navigation />
-      <Outlet />
+      <Intro />
+      <Test />
       <Footer />
     </Box>
   );
