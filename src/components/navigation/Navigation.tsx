@@ -1,7 +1,24 @@
 import { UnorderedList, ListItem, Link, Flex } from "@chakra-ui/react";
 import "./Navigation.css";
 
-export const Navigation = () => {
+type NavigationProps = {
+  handleScroll: (section: string) => void;
+};
+
+export const Navigation = ({ handleScroll }: NavigationProps) => {
+  type Section = {
+    name: string;
+    ref: string;
+  };
+
+  const refs: Section[] = [
+    { name: "Intro", ref: "introRef" },
+    { name: "About", ref: "aboutRef" },
+    { name: "Skills", ref: "skillsRef" },
+    { name: "Projects", ref: "projectsRef" },
+    { name: "Contact", ref: "contactRef" },
+  ];
+
   return (
     <Flex
       as="nav"
@@ -17,21 +34,11 @@ export const Navigation = () => {
         w="60%"
         m={0}
       >
-        <ListItem>
-          <Link>Intro</Link>
-        </ListItem>
-        <ListItem>
-          <Link>About</Link>
-        </ListItem>
-        <ListItem>
-          <Link>Skills</Link>
-        </ListItem>
-        <ListItem>
-          <Link>Projects</Link>
-        </ListItem>
-        <ListItem>
-          <Link>Contact</Link>
-        </ListItem>
+        {refs.map(({ name, ref }) => (
+          <ListItem key={name}>
+            <Link onClick={() => handleScroll(ref)}>{name}</Link>
+          </ListItem>
+        ))}
       </UnorderedList>
     </Flex>
   );

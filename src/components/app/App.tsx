@@ -10,6 +10,29 @@ import { Skills } from "../skills/Skills";
 export const App = () => {
   const containerRef = useRef(null);
 
+  // Navigation refs
+  const introRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const handleScroll = (section: string) => {
+    const refMap = {
+      introRef,
+      aboutRef,
+      skillsRef,
+      projectsRef,
+      contactRef,
+    };
+
+    const targetRef = refMap[section];
+
+    if (targetRef && targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box className="app" ref={containerRef}>
       <Crosshair containerRef={containerRef} color="#DC143C" />
@@ -22,9 +45,9 @@ export const App = () => {
           hoverFillColor="rgba(34,34,34,0.7)"
         />
       </Box>
-      <Navigation />
-      <Intro />
-      <Skills />
+      <Navigation handleScroll={handleScroll} />
+      <Intro introRef={introRef} />
+      <Skills skillsRef={skillsRef} />
       <Footer />
     </Box>
   );

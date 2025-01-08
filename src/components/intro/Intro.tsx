@@ -15,7 +15,7 @@ import { Header } from "../header/Header";
 
 // CHECK THESE ANIMATIONS LATER !
 
-export const Intro = () => {
+export const Intro = ({ introRef }) => {
   const [startSplitText, setStartSplitText] = useState(false);
   const [startContactBtn, setStartContactBtn] = useState(false);
 
@@ -30,7 +30,7 @@ export const Intro = () => {
   };
 
   return (
-    <Box className="intro" py={20} w="100%">
+    <Box ref={introRef} className="intro" py={20} w="100%">
       <Box w="60%" m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"

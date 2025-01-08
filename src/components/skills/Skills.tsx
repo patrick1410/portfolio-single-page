@@ -3,9 +3,13 @@ import { Header } from "../header/Header";
 import "./Skills.css";
 import { skills } from "./skillsList";
 
-export const Skills = () => {
+export const Skills = ({ skillsRef }) => {
   return (
-    <Box className="skills animate__animated animate__fadeInRight" w="100%">
+    <Box
+      ref={skillsRef}
+      className="skills animate__animated animate__fadeInRight"
+      w="100%"
+    >
       <Box w="60%" m="auto">
         <Header text="Skills" />
         <SimpleGrid gap={10} columns={4} className="skills-grid">
@@ -16,6 +20,7 @@ export const Skills = () => {
               height="80px"
               px="1rem"
               py="0.5rem"
+              key={name}
             >
               <Box>
                 <Image h="48px" w="48px" src={icon} alt={name} />
