@@ -1,3 +1,5 @@
+// DELETE THIS COMPONENT WHEN WE HAVE MORE CONTENT!
+
 import { Flex, Text } from "@chakra-ui/react";
 import "./Test.css";
 

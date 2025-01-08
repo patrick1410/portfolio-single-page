@@ -12,6 +12,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import SplitText from "../split-text/SplitText";
+import { Header } from "../header/Header";
 
 export const Intro = () => {
   const [startSplitText, setStartSplitText] = useState(false);
@@ -38,6 +39,7 @@ export const Intro = () => {
           onAnimationEnd={handleStartSplitText}
         >
           <VStack alignItems="flex-start">
+            <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
             <div style={{ height: 24 }}>
