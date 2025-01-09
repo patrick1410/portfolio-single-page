@@ -7,6 +7,7 @@ import { About } from "../about/About";
 import { Footer } from "../footer/Footer";
 import { useRef } from "react";
 import { Skills } from "../skills/Skills";
+import { Projects } from "../projects/Projects";
 
 export const App = () => {
   const containerRef = useRef(null);
@@ -60,6 +61,7 @@ export const App = () => {
       <Intro introRef={introRef} />
       <About aboutRef={aboutRef} />
       <Skills skillsRef={skillsRef} />
+      <Projects projectsRef={projectsRef} />
       <Footer />
     </Box>
   );

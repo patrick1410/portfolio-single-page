@@ -153,8 +153,10 @@ const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
     };
 
     const links = containerRef?.current
-      ? containerRef.current.querySelectorAll("a, .resume-wrapper")
-      : document.querySelectorAll("a, .resume-wrapper");
+      ? containerRef.current.querySelectorAll(
+          "a, .resume-wrapper, .project-image"
+        )
+      : document.querySelectorAll("a, .resume-wrapper, .project-image");
 
     links.forEach((link) => {
       link.addEventListener("mouseenter", enter);
