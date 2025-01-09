@@ -25,6 +25,7 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
               px="1rem"
               py="0.5rem"
               key={name}
+              boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
             >
               <Box>
                 <Image h="48px" w="48px" src={icon} alt={name} />

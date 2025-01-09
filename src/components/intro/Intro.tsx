@@ -63,6 +63,7 @@ export const Intro = ({ introRef }: IntroProps) => {
                   href={resume}
                   className="animate__animated animate__backInUp resume-btn"
                   fontWeight={300}
+                  boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
                 >
                   Download resume
                 </Button>
