@@ -55,7 +55,7 @@ export const Intro = ({ introRef }: IntroProps) => {
                 />
               )}
             </div>
-            <div style={{ height: 40 }}>
+            <div style={{ height: 40 }} className="resume-wrapper">
               {startResumeBtn && (
                 <Button
                   as="a"

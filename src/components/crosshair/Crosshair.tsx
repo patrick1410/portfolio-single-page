@@ -19,12 +19,18 @@ type CrosshairProps = {
   containerRef: React.RefObject<HTMLElement | null>;
 };
 
+type RenderedStyle = {
+  previous: number;
+  current: number;
+  amt: number;
+};
+
 const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
   const cursorRef = useRef(null);
-  const lineHorizontalRef = useRef(null);
-  const lineVerticalRef = useRef(null);
-  const filterXRef = useRef(null);
-  const filterYRef = useRef(null);
+  const lineHorizontalRef = useRef<HTMLDivElement | null>(null);
+  const lineVerticalRef = useRef<HTMLDivElement | null>(null);
+  const filterXRef = useRef<SVGFETurbulenceElement | null>(null);
+  const filterYRef = useRef<SVGFETurbulenceElement | null>(null);
 
   let mouse = { x: 0, y: 0 };
 
@@ -53,9 +59,9 @@ const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
     };
 
     const target = containerRef?.current || window;
-    target.addEventListener("mousemove", handleMouseMove);
+    target.addEventListener("mousemove", handleMouseMove as EventListener);
 
-    const renderedStyles = {
+    const renderedStyles: Record<string, RenderedStyle> = {
       tx: { previous: 0, current: 0, amt: 0.15 },
       ty: { previous: 0, current: 0, amt: 0.15 },
     };
@@ -88,22 +94,34 @@ const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
       .timeline({
         paused: true,
         onStart: () => {
-          lineHorizontalRef.current.style.filter = `url(#filter-noise-x)`;
-          lineVerticalRef.current.style.filter = `url(#filter-noise-y)`;
+          if (lineHorizontalRef.current) {
+            lineHorizontalRef.current.style.filter = `url(#filter-noise-x)`;
+          }
+          if (lineVerticalRef.current) {
+            lineVerticalRef.current.style.filter = `url(#filter-noise-y)`;
+          }
         },
         onUpdate: () => {
-          filterXRef.current.setAttribute(
-            "baseFrequency",
-            primitiveValues.turbulence
-          );
-          filterYRef.current.setAttribute(
-            "baseFrequency",
-            primitiveValues.turbulence
-          );
+          if (filterXRef.current) {
+            filterXRef.current.setAttribute(
+              "baseFrequency",
+              primitiveValues.turbulence.toString()
+            );
+          }
+          if (filterYRef.current) {
+            filterYRef.current.setAttribute(
+              "baseFrequency",
+              primitiveValues.turbulence.toString()
+            );
+          }
         },
         onComplete: () => {
-          lineHorizontalRef.current.style.filter =
+          if (lineHorizontalRef.current) {
+            lineHorizontalRef.current.style.filter = "none";
+          }
+          if (lineVerticalRef.current) {
             lineVerticalRef.current.style.filter = "none";
+          }
         },
       })
       .to(primitiveValues, {
@@ -135,8 +153,8 @@ const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
     };
 
     const links = containerRef?.current
-      ? containerRef.current.querySelectorAll("a, button")
-      : document.querySelectorAll("a, button");
+      ? containerRef.current.querySelectorAll("a, .resume-wrapper")
+      : document.querySelectorAll("a, .resume-wrapper");
 
     links.forEach((link) => {
       link.addEventListener("mouseenter", enter);
@@ -144,7 +162,7 @@ const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
     });
 
     return () => {
-      target.removeEventListener("mousemove", handleMouseMove);
+      target.removeEventListener("mousemove", handleMouseMove as EventListener);
       target.removeEventListener("mousemove", onMouseMove);
       links.forEach((link) => {
         link.removeEventListener("mouseenter", enter);
