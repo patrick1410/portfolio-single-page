@@ -12,9 +12,10 @@ nav > ul > li {
   border: 2px solid #008000;
   border-radius: 10px;
   background-color: #000a0a;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 nav > ul > li > a {
-  pointer-events: auto;
-  cursor: pointer;
+  text-decoration: none !important;
 }
