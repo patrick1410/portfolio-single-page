@@ -1,23 +1,16 @@
 import profilePicture from "../../assets/pf.jpg";
 import "./Intro.css";
 import { useState } from "react";
-import {
-  Box,
-  Avatar,
-  Text,
-  HStack,
-  Button,
-  Link,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Avatar, Text, HStack, Button, Flex } from "@chakra-ui/react";
 import SplitText from "../split-text/SplitText";
 import { Header } from "../header/Header";
+import resume from "../../assets/resume.pdf";
 
 // CHECK THESE ANIMATIONS LATER !
 
 export const Intro = ({ introRef }) => {
   const [startSplitText, setStartSplitText] = useState(false);
-  const [startContactBtn, setStartContactBtn] = useState(false);
+  const [startResumeBtn, setStartResumeBtn] = useState(false);
 
   const handleStartSplitText = () => {
     // After the last Text element is done, trigger the SplitText component
@@ -26,7 +19,7 @@ export const Intro = ({ introRef }) => {
 
   const handleStartContactBtn = () => {
     // After SplitText is done, trigger the ContactBtn
-    setStartContactBtn(true);
+    setStartResumeBtn(true);
   };
 
   return (
@@ -59,9 +52,15 @@ export const Intro = ({ introRef }) => {
               )}
             </div>
             <div style={{ height: 40 }}>
-              {startContactBtn && (
-                <Button className="animate__animated animate__backInUp contact-btn">
-                  <Link>Contact Me</Link>
+              {startResumeBtn && (
+                <Button
+                  as="a"
+                  download
+                  href={resume}
+                  className="animate__animated animate__backInUp contact-btn"
+                  fontWeight={300}
+                >
+                  Download resume
                 </Button>
               )}
             </div>
