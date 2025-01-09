@@ -35,8 +35,14 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
         m={0}
       >
         {refs.map(({ name, ref }) => (
-          <ListItem key={name} onClick={() => handleScroll(ref)}>
-            <Link>{name}</Link>
+          <ListItem
+            className="list-item"
+            transition={" 0.3s ease-in-out"}
+            _hover={{ transform: "scale(1.2) rotate(-5deg)" }}
+            key={name}
+            onClick={() => handleScroll(ref)}
+          >
+            <Link className="link">{name}</Link>
           </ListItem>
         ))}
       </UnorderedList>
