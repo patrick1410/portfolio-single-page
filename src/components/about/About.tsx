@@ -2,7 +2,11 @@ import "./About.css";
 import { Box, Text } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 
-export const About = ({ aboutRef }) => {
+type AboutProps = {
+  aboutRef: React.RefObject<HTMLDivElement>;
+};
+
+export const About = ({ aboutRef }: AboutProps) => {
   return (
     <Box
       ref={aboutRef}

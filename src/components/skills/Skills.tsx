@@ -3,7 +3,11 @@ import { Header } from "../header/Header";
 import "./Skills.css";
 import { skills } from "./skillsList";
 
-export const Skills = ({ skillsRef }) => {
+type SkillsProps = {
+  skillsRef: React.RefObject<HTMLDivElement>;
+};
+
+export const Skills = ({ skillsRef }: SkillsProps) => {
   return (
     <Box
       ref={skillsRef}

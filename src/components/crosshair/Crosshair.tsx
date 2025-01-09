@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
 
-const getMousePos = (e: MouseEvent, container: HTMLElement) => {
+const getMousePos = (e: MouseEvent, container: HTMLElement | null) => {
   if (container) {
     const bounds = container.getBoundingClientRect();
     return {
@@ -14,7 +14,12 @@ const getMousePos = (e: MouseEvent, container: HTMLElement) => {
   return { x: e.clientX, y: e.clientY };
 };
 
-const Crosshair = ({ color = "white", containerRef = null }) => {
+type CrosshairProps = {
+  color?: string;
+  containerRef: React.RefObject<HTMLElement | null>;
+};
+
+const Crosshair = ({ color = "white", containerRef }: CrosshairProps) => {
   const cursorRef = useRef(null);
   const lineHorizontalRef = useRef(null);
   const lineVerticalRef = useRef(null);
@@ -130,8 +135,8 @@ const Crosshair = ({ color = "white", containerRef = null }) => {
     };
 
     const links = containerRef?.current
-      ? containerRef.current.querySelectorAll("a")
-      : document.querySelectorAll("a");
+      ? containerRef.current.querySelectorAll("a, button")
+      : document.querySelectorAll("a, button");
 
     links.forEach((link) => {
       link.addEventListener("mouseenter", enter);
@@ -171,8 +176,7 @@ const Crosshair = ({ color = "white", containerRef = null }) => {
           height: "100%",
         }}
       >
-        {/* This sets a filter on/off on hover decide later */}
-        {/* <defs>
+        <defs>
           <filter id="filter-noise-x">
             <feTurbulence
               type="fractalNoise"
@@ -191,7 +195,7 @@ const Crosshair = ({ color = "white", containerRef = null }) => {
             />
             <feDisplacementMap in="SourceGraphic" scale="40" />
           </filter>
-        </defs> */}
+        </defs>
       </svg>
       <div
         ref={lineHorizontalRef}

@@ -8,7 +8,11 @@ import resume from "../../assets/resume.pdf";
 
 // CHECK THESE ANIMATIONS LATER !
 
-export const Intro = ({ introRef }) => {
+type IntroProps = {
+  introRef: React.RefObject<HTMLDivElement>;
+};
+
+export const Intro = ({ introRef }: IntroProps) => {
   const [startSplitText, setStartSplitText] = useState(false);
   const [startResumeBtn, setStartResumeBtn] = useState(false);
 
@@ -57,7 +61,7 @@ export const Intro = ({ introRef }) => {
                   as="a"
                   download
                   href={resume}
-                  className="animate__animated animate__backInUp contact-btn"
+                  className="animate__animated animate__backInUp resume-btn"
                   fontWeight={300}
                 >
                   Download resume

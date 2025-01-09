@@ -7,7 +7,6 @@
 
 nav > ul > li {
   text-transform: uppercase;
-  padding: 0 1.5rem;
   color: #fff;
   border: 2px solid #008000;
   border-radius: 10px;
@@ -18,4 +17,5 @@ nav > ul > li {
 
 nav > ul > li > a {
   text-decoration: none !important;
+  padding: 0 1.5rem;
 }
