@@ -1,3 +1,4 @@
+import "./App.css";
 import { useRef } from "react";
 import { Box } from "@chakra-ui/react";
 import Crosshair from "../crosshair/Crosshair";
