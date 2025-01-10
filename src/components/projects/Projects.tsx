@@ -48,9 +48,9 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
       className="projects animate__animated animate__fadeInRight"
       pt={20}
     >
-      <Box w="60%" m="auto">
+      <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Projects" />
-        <SimpleGrid gap={10} columns={2}>
+        <SimpleGrid gap={10} columns={{ base: 1, xl: 2 }}>
           {exampleProjects.map(({ image, title, description, link }) => (
             <Box
               bg="#EDF2F7"

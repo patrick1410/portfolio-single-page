@@ -37,13 +37,18 @@ export const Intro = ({ introRef }: IntroProps) => {
 
   return (
     <Box ref={introRef} className="intro" pt={20}>
-      <Box w="60%" m="auto">
+      <Box w={{ base: "80%", md: "60%" }} m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"
           display="flex"
+          flexDir={{ base: "column", md: "row" }}
           onAnimationEnd={handleStartSplitText}
         >
-          <Flex flexDir="column" alignItems="flex-start" w="50%">
+          <Flex
+            flexDir="column"
+            alignItems="flex-start"
+            w={{ base: "100%", md: "50%" }}
+          >
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
@@ -85,6 +90,7 @@ export const Intro = ({ introRef }: IntroProps) => {
             </Box>
           </Flex>
           <Avatar
+            mt={{ base: 20, md: 0 }}
             className="image"
             w={250}
             h={250}

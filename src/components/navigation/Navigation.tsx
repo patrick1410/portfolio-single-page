@@ -1,5 +1,18 @@
 import "./Navigation.css";
-import { UnorderedList, ListItem, Link, Flex } from "@chakra-ui/react";
+import {
+  UnorderedList,
+  ListItem,
+  Link,
+  Flex,
+  Box,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerBody,
+  DrawerCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 type NavigationProps = {
   handleScroll: (section: string) => void;
@@ -19,16 +32,81 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
     { name: "Contact", ref: "contactRef" },
   ];
 
+  const handleMobileClick = (ref: string) => {
+    handleScroll(ref);
+    onClose();
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Flex
       as="nav"
       className="animate__animated animate__fadeInDown"
       py={10}
-      justifyContent="center"
+      justifyContent={{ base: "flex-end", md: "center" }}
     >
+      {/* Mobile Menu */}
+      <Box
+        display={{ base: "flex", md: "none" }}
+        justifyContent="flex-end"
+        mr={8}
+        pointerEvents="auto"
+        w="100%"
+      >
+        <HamburgerIcon
+          color="#008000"
+          boxSize={8}
+          cursor="pointer"
+          onClick={onOpen}
+        />
+      </Box>
+      <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerBody backgroundColor={"rgba(6, 18, 18, 0.88)"}>
+            <UnorderedList
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-evenly"
+              alignItems="flex-end"
+              height="100%"
+              style={{
+                listStyle: "none",
+              }}
+            >
+              {refs.map(({ name, ref }) => (
+                <ListItem
+                  className="list-item"
+                  transition={" 0.3s ease-in-out"}
+                  _hover={{ transform: "scale(1.2) rotate(5deg)" }}
+                  key={name}
+                  onClick={() => handleMobileClick(ref)}
+                >
+                  <Link className="link">{name}</Link>
+                </ListItem>
+              ))}
+            </UnorderedList>
+          </DrawerBody>
+          <DrawerCloseButton
+            _hover={{ backgroundColor: "none" }}
+            _active={{ backgroundColor: "none" }}
+            as="div"
+          >
+            <CloseIcon
+              boxSize={6}
+              color="#008000"
+              cursor="pointer"
+              onClick={onOpen}
+            />
+          </DrawerCloseButton>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Desktop Menu */}
       <UnorderedList
+        display={{ base: "none", md: "flex" }}
         listStyleType="none"
-        display="flex"
         justifyContent="space-between"
         alignItems="center"
         w="60%"

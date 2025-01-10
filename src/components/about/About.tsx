@@ -13,9 +13,9 @@ export const About = ({ aboutRef }: AboutProps) => {
       className="about animate__animated animate__fadeInRight"
       pt={20}
     >
-      <Box w="60%" m="auto">
+      <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="About" />
-        <Box w="75%" mb={10}>
+        <Box w={{ base: "100%", md: "75%" }} mb={10}>
           <Text mb={2}>
             Hi, I'm Patrick, a dedicated software developer from Amsterdam 💻📍.
             I have a passion for creating innovative and efficient solutions

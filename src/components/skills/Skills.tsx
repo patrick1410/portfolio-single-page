@@ -14,9 +14,13 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
       className="skills animate__animated animate__fadeInLeft"
       pt={20}
     >
-      <Box w="60%" m="auto">
+      <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Skills" />
-        <SimpleGrid gap={10} columns={4} className="skills-grid">
+        <SimpleGrid
+          gap={10}
+          columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+          className="skills-grid"
+        >
           {skills.map(({ name, icon }) => (
             <Flex
               alignItems="center"
