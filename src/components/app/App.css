@@ -11,6 +11,8 @@
   border-radius: 10px; /* Rounded corners for the scrollbar handle */
 }
 
+/* CHANGE THE BG COLOR? TRANSPARANT | #EDF2F2 */
+
 ::-webkit-scrollbar-track {
   background: #6b7280; /* Background of the scrollbar track */
   border-radius: 10px;
