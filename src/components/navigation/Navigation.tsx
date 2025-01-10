@@ -80,7 +80,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
               display="flex"
               flexDirection="column"
               justifyContent="space-evenly"
-              alignItems="flex-end"
+              alignItems="flex-start"
               height="100%"
               style={{
                 listStyle: "none",
