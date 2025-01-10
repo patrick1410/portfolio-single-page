@@ -13,7 +13,7 @@ const theme = extendTheme({
         fontFamily: "Poppins, Arial, Helvetica, Verdana, sans-serif",
         fontWeight: 300,
       },
-      p: { color: "#FFF" },
+      p: { color: "#EDF2F2" },
       html: { minHeight: "100%" },
       body: { minHeight: "100%", overflowX: "hidden" },
     },
