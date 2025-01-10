@@ -6,7 +6,7 @@
 
 .input {
   pointer-events: auto;
-  color: #fff;
+  color: #edf2f2;
   margin-bottom: 1.5rem;
 }
 
@@ -17,7 +17,7 @@
 .label {
   display: inline-block !important;
   margin-bottom: 0.5rem !important;
-  color: #fff;
+  color: #edf2f2;
   font-weight: 400;
   text-transform: uppercase;
   pointer-events: auto;

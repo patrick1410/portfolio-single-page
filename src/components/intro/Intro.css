@@ -10,6 +10,7 @@
 
 .resume-btn {
   pointer-events: auto;
+  text-transform: uppercase;
 }
 
 .image {

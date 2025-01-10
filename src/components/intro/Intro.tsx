@@ -1,10 +1,19 @@
 import "./Intro.css";
 import profilePicture from "../../assets/pf.jpg";
 import { useState } from "react";
-import { Box, Avatar, Text, HStack, Button, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Avatar,
+  Text,
+  HStack,
+  Button,
+  Flex,
+  Icon,
+} from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import SplitText from "../split-text/SplitText";
 import resume from "../../assets/resume.pdf";
+import { LuDownload } from "react-icons/lu";
 
 // CHECK THESE ANIMATIONS LATER !
 
@@ -62,10 +71,15 @@ export const Intro = ({ introRef }: IntroProps) => {
                   download
                   href={resume}
                   className="animate__animated animate__backInUp resume-btn"
-                  fontWeight={300}
+                  fontWeight={500}
                   boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
+                  letterSpacing={0.3}
+                  color="#1a202c"
                 >
                   Download resume
+                  <Box ml={4}>
+                    <Icon color="#1a202c" as={LuDownload} boxSize={6} />
+                  </Box>
                 </Button>
               )}
             </Box>
