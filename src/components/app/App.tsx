@@ -16,7 +16,7 @@ import { Footer } from "../footer/Footer";
 import { useMediaQuery } from "@chakra-ui/react";
 
 export const App = () => {
-  const [isLargerThanMobile] = useMediaQuery("(min-width: 768px)");
+  const [isLargerThanMobile] = useMediaQuery("(min-width: 769px)");
 
   const containerRef = useRef(null);
 
