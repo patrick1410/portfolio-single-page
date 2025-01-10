@@ -1,6 +1,24 @@
 import { useSprings, animated } from "@react-spring/web";
 import { useEffect, useRef, useState } from "react";
 
+interface Animation {
+  opacity: number;
+  transform: string;
+}
+
+type SplitTextProps = {
+  text: string;
+  className?: string;
+  delay?: number;
+  animationFrom?: Animation;
+  animationTo?: Animation;
+  easing?: string;
+  threshold?: number;
+  rootMargin?: string;
+  textAlign?: "left" | "center" | "right";
+  onLetterAnimationComplete?: () => void;
+};
+
 const SplitText = ({
   text = "",
   className = "",
@@ -12,7 +30,7 @@ const SplitText = ({
   rootMargin = "-100px",
   textAlign = "left",
   onLetterAnimationComplete,
-}) => {
+}: SplitTextProps) => {
   const letters = text.split("");
   const [inView, setInView] = useState(false);
   const ref = useRef();

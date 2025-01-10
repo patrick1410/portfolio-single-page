@@ -1,9 +1,9 @@
-import profilePicture from "../../assets/pf.jpg";
 import "./Intro.css";
+import profilePicture from "../../assets/pf.jpg";
 import { useState } from "react";
 import { Box, Avatar, Text, HStack, Button, Flex } from "@chakra-ui/react";
-import SplitText from "../split-text/SplitText";
 import { Header } from "../header/Header";
+import SplitText from "../split-text/SplitText";
 import resume from "../../assets/resume.pdf";
 
 // CHECK THESE ANIMATIONS LATER !
@@ -38,7 +38,7 @@ export const Intro = ({ introRef }: IntroProps) => {
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
-            <div style={{ height: 24, marginBottom: 8 }}>
+            <Box height="24px" marginBottom={2}>
               {startSplitText && (
                 <SplitText
                   text="And I'm a Developer"
@@ -54,8 +54,8 @@ export const Intro = ({ introRef }: IntroProps) => {
                   onLetterAnimationComplete={handleStartContactBtn}
                 />
               )}
-            </div>
-            <div style={{ height: 40 }} className="resume-wrapper">
+            </Box>
+            <Box height="40px" className="resume-wrapper">
               {startResumeBtn && (
                 <Button
                   as="a"
@@ -68,7 +68,7 @@ export const Intro = ({ introRef }: IntroProps) => {
                   Download resume
                 </Button>
               )}
-            </div>
+            </Box>
           </Flex>
           <Avatar
             className="image"

@@ -13,10 +13,12 @@
   height: 64px !important;
   margin: 20px 0px 0px 10px;
   pointer-events: auto;
+  transition: 0.3s ease-in;
 }
 
-.linkedin-icon:hover,
-.github-icon:hover {
+.linkedin-icon:hover {
   color: #0a66c2 !important;
-  transition: 0.3s ease-in;
+}
+.github-icon:hover {
+  color: #6b7280 !important;
 }

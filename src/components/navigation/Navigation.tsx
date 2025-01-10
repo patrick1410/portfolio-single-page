@@ -1,5 +1,5 @@
-import { UnorderedList, ListItem, Link, Flex } from "@chakra-ui/react";
 import "./Navigation.css";
+import { UnorderedList, ListItem, Link, Flex } from "@chakra-ui/react";
 
 type NavigationProps = {
   handleScroll: (section: string) => void;
@@ -22,7 +22,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
   return (
     <Flex
       as="nav"
-      className="navigation animate__animated animate__fadeInDown"
+      className="animate__animated animate__fadeInDown"
       py={10}
       justifyContent="center"
     >

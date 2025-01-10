@@ -1,13 +1,17 @@
+import { useRef } from "react";
 import { Box } from "@chakra-ui/react";
 import Crosshair from "../crosshair/Crosshair";
 import Squares from "../squares-bg/Squares";
+import { HeaderContainer } from "../containers/HeaderContainer";
 import { Navigation } from "../navigation/Navigation";
+import { MainContainer } from "../containers/MainContainer";
 import { Intro } from "../intro/Intro";
 import { About } from "../about/About";
-import { Footer } from "../footer/Footer";
-import { useRef } from "react";
 import { Skills } from "../skills/Skills";
 import { Projects } from "../projects/Projects";
+import { FooterContainer } from "../containers/FooterContainer";
+import { Contact } from "../contact/Contact";
+import { Footer } from "../footer/Footer";
 
 export const App = () => {
   const containerRef = useRef(null);
@@ -20,7 +24,7 @@ export const App = () => {
   const contactRef = useRef(null);
 
   const handleScroll = (section: string) => {
-    const refMap = {
+    const refMap: Record<string, React.RefObject<HTMLDivElement>> = {
       introRef,
       aboutRef,
       skillsRef,
@@ -47,6 +51,7 @@ export const App = () => {
 
   return (
     <Box className="app" ref={containerRef}>
+      {/* Effects / Canvas */}
       <Crosshair containerRef={containerRef} color="#DC143C" />
       <Box className="squares-bg">
         <Squares
@@ -57,12 +62,25 @@ export const App = () => {
           hoverFillColor="rgba(34,34,34,0.7)"
         />
       </Box>
-      <Navigation handleScroll={handleScroll} />
-      <Intro introRef={introRef} />
-      <About aboutRef={aboutRef} />
-      <Skills skillsRef={skillsRef} />
-      <Projects projectsRef={projectsRef} />
-      <Footer />
+
+      {/* Header Section*/}
+      <HeaderContainer>
+        <Navigation handleScroll={handleScroll} />
+      </HeaderContainer>
+
+      {/* Main Section */}
+      <MainContainer>
+        <Intro introRef={introRef} />
+        <About aboutRef={aboutRef} />
+        <Skills skillsRef={skillsRef} />
+        <Projects projectsRef={projectsRef} />
+      </MainContainer>
+
+      {/* Footer Section */}
+      <FooterContainer>
+        <Contact contactRef={contactRef} />
+        <Footer />
+      </FooterContainer>
     </Box>
   );
 };

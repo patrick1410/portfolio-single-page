@@ -24,16 +24,17 @@ export const About = ({ aboutRef }: AboutProps) => {
           </Text>
           <Text mb={2}>
             When I'm not <span style={{ fontWeight: "bold" }}>!coding</span> 🤣,
-            you can find me indulging in my other passions—gaming 🎮 and cooking
-            👨‍🍳. Gaming allows me to unwind while also honing my problem-solving
-            and strategic thinking skills. On the other hand, cooking lets me
-            get creative in the kitchen, experimenting with new recipes and
-            flavors.
+            I enjoy watching movies 🎞️ and playing games 🎮 to relax. Gaming
+            helps me unwind while sharpening my problem-solving and strategic
+            thinking skills. I also have a true passion for cooking 👨‍🍳. Creating
+            flavorful dishes allows me to get creative in the kitchen,
+            experimenting with new recipes and flavors.
           </Text>
           <Text mb={2}>
-            Whether I'm writing code, conquering virtual worlds, or whipping up
-            a delicious meal, I always strive for excellence and enjoy
-            challenging myself to learn something new every day.
+            Whether I'm writing code, watching movies, conquering virtual
+            worlds, or whipping up a delicious meal, I always strive for
+            excellence and enjoy challenging myself to learn something new every
+            day.
           </Text>
           <Text>
             Feel free to reach out if you'd like to collaborate, chat, or share

@@ -1,6 +1,6 @@
 import "./Projects.css";
-import { Header } from "../header/Header";
 import { Box, SimpleGrid, Text, Image, Link } from "@chakra-ui/react";
+import { Header } from "../header/Header";
 import weatherAppSS from "../../assets/weather-app.png";
 import eventAppSS from "../../assets/event-app.png";
 import bookingAppSS from "../../assets/booking-management-app.png";
@@ -61,6 +61,7 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
               borderRadius={15}
               boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
               p={4}
+              key={title}
             >
               <Text className="text" textAlign="center">
                 {title}

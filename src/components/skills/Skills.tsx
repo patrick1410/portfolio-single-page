@@ -1,6 +1,6 @@
+import "./Skills.css";
 import { Box, SimpleGrid, Flex, Text, Image } from "@chakra-ui/react";
 import { Header } from "../header/Header";
-import "./Skills.css";
 import { skills } from "./skillsList";
 
 type SkillsProps = {

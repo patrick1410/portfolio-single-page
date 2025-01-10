@@ -1,6 +1,6 @@
+import "./Footer.css";
 import { Box, Text, Link, Icon, Center, Flex } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import "./Footer.css";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
@@ -8,8 +8,8 @@ export const Footer = () => {
   return (
     <Center
       className="footer animate__animated animate__fadeInUp"
-      as="footer"
-      py={10}
+      pt={20}
+      pb={10}
     >
       <Box>
         <Box>

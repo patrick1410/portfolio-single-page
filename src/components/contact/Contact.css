@@ -1,0 +1,29 @@
+.contact {
+  position: relative;
+  z-index: 10; /* Higher than .squares-bg */
+  pointer-events: none;
+}
+
+.input {
+  pointer-events: auto;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.input::placeholder {
+  font-style: italic;
+}
+
+.label {
+  display: inline-block !important;
+  margin-bottom: 0.5rem !important;
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+  pointer-events: auto;
+  margin-right: 0 !important;
+}
+
+.submit {
+  pointer-events: auto;
+}
