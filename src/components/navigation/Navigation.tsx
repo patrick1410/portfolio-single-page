@@ -13,6 +13,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import Squares from "../squares-bg/Squares";
 
 type NavigationProps = {
   handleScroll: (section: string) => void;
@@ -64,7 +65,17 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
       <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerBody backgroundColor={"rgba(6, 18, 18, 0.88)"}>
+          {/* Canvas BG */}
+          <Box className="squares-bg">
+            <Squares
+              speed={0.5}
+              squareSize={40}
+              direction="down"
+              borderColor="#008000"
+              hoverFillColor="rgba(34,34,34,0.7)"
+            />
+          </Box>
+          <DrawerBody position="relative" zIndex={20} pointerEvents="none">
             <UnorderedList
               display="flex"
               flexDirection="column"
