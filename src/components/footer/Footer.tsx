@@ -28,13 +28,13 @@ export const Footer = () => {
         </Box>
         <Flex justifyContent="space-evenly">
           <Link href="https://github.com/patrick1410" isExternal>
-            <Icon className="github-icon" as={FaGithub} />
+            <Icon className="github-icon" as={FaGithub} boxSize={16} />
           </Link>
           <Link
             href="https://www.linkedin.com/in/patrick-mankaryous/"
             isExternal
           >
-            <Icon className="linkedin-icon" as={FaLinkedin} />
+            <Icon className="linkedin-icon" as={FaLinkedin} boxSize={16} />
           </Link>
         </Flex>
       </Box>

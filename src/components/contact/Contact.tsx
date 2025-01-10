@@ -8,8 +8,11 @@ import {
   Textarea,
   Button,
   Center,
+  Icon,
+  Text,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
+import { LuSendHorizontal } from "react-icons/lu";
 
 type ContactProps = {
   contactRef: React.RefObject<HTMLDivElement>;
@@ -71,10 +74,23 @@ export const Contact = ({ contactRef }: ContactProps) => {
             w="50%"
             className="submit"
             type="submit"
-            fontWeight={300}
             boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
+            display="flex"
+            alignItems="center"
           >
-            Send
+            <Box mr={4}>
+              <Text
+                fontWeight={500}
+                letterSpacing={0.3}
+                textTransform="uppercase"
+                color="#1a202c"
+              >
+                Send
+              </Text>
+            </Box>
+            <Box>
+              <Icon color="#1a202c" as={LuSendHorizontal} boxSize={6} />
+            </Box>
           </Button>
         </Center>
       </Box>
