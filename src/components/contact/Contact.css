@@ -28,7 +28,7 @@
   pointer-events: auto;
   transition: transform 0.3s ease-in-out !important; /* Smooth transition */
 }
-.submit:hover {
+.submit-btn:hover {
   background: transparent !important;
   transform: translateY(-5px); /* Move the button up */
 }
