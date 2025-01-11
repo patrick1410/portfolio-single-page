@@ -13,11 +13,8 @@ import { Projects } from "../projects/Projects";
 import { FooterContainer } from "../containers/FooterContainer";
 import { Contact } from "../contact/Contact";
 import { Footer } from "../footer/Footer";
-import { useMediaQuery } from "@chakra-ui/react";
 
 export const App = () => {
-  const [isLargerThanMobile] = useMediaQuery("(min-width: 769px)");
-
   const containerRef = useRef(null);
 
   // Navigation refs
@@ -56,12 +53,7 @@ export const App = () => {
   return (
     <Box className="app" ref={containerRef}>
       {/* Effects / Canvas */}
-
-      {/* Fix this later ? */}
-      {isLargerThanMobile && (
-        <Crosshair containerRef={containerRef} color="#DC143C" />
-      )}
-
+      <Crosshair containerRef={containerRef} color="#DC143C" />
       <Box className="squares-bg">
         <Squares
           speed={0.5}
