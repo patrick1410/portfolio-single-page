@@ -36,7 +36,7 @@ export const Intro = ({ introRef }: IntroProps) => {
   };
 
   return (
-    <Box ref={introRef} className="intro" pt={20}>
+    <Box ref={introRef} className="intro" pt={{ base: 0, md: 20 }}>
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <HStack
           className="animate__animated animate__fadeInLeft"

@@ -1,25 +1,15 @@
 import "./Navigation.css";
-import {
-  UnorderedList,
-  ListItem,
-  Link,
-  Flex,
-  Box,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerBody,
-  DrawerCloseButton,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { useState } from "react";
+import { UnorderedList, ListItem, Link, Flex, Box } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import Squares from "../squares-bg/Squares";
 
 type NavigationProps = {
   handleScroll: (section: string) => void;
 };
 
 export const Navigation = ({ handleScroll }: NavigationProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   type Section = {
     name: string;
     ref: string;
@@ -35,10 +25,8 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
 
   const handleMobileClick = (ref: string) => {
     handleScroll(ref);
-    onClose();
+    setIsOpen(false);
   };
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex
@@ -47,72 +35,60 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
       py={10}
       justifyContent={{ base: "flex-end", md: "center" }}
     >
-      {/* Mobile Menu */}
+      {/* Mobile Icons */}
       <Box
         display={{ base: "flex", md: "none" }}
-        justifyContent="flex-end"
         mr={8}
+        cursor="pointer"
         pointerEvents="auto"
-        w="100%"
       >
-        <HamburgerIcon
-          color="#008000"
-          boxSize={8}
-          cursor="pointer"
-          onClick={onOpen}
-        />
+        {isOpen ? (
+          <CloseIcon
+            onClick={() => setIsOpen(!isOpen)}
+            color="#008000"
+            boxSize={8}
+          />
+        ) : (
+          <HamburgerIcon
+            onClick={() => setIsOpen(!isOpen)}
+            color="#008000"
+            boxSize={8}
+          />
+        )}
       </Box>
-      <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay />
-        <DrawerContent>
-          {/* Canvas BG */}
-          <Box className="squares-bg">
-            <Squares
-              speed={0.5}
-              squareSize={40}
-              direction="down"
-              borderColor="#008000"
-              hoverFillColor="rgba(34,34,34,0.7)"
-            />
-          </Box>
-          <DrawerBody position="relative" zIndex={20} pointerEvents="none">
-            <UnorderedList
-              display="flex"
-              flexDirection="column"
-              justifyContent="space-evenly"
-              alignItems="flex-start"
-              height="100%"
-              style={{
-                listStyle: "none",
-              }}
-            >
-              {refs.map(({ name, ref }) => (
-                <ListItem
-                  className="list-item"
-                  transition={" 0.3s ease-in-out"}
-                  _hover={{ transform: "scale(1.2) rotate(5deg)" }}
-                  key={name}
-                  onClick={() => handleMobileClick(ref)}
-                >
-                  <Link className="link">{name}</Link>
-                </ListItem>
-              ))}
-            </UnorderedList>
-          </DrawerBody>
-          <DrawerCloseButton
-            _hover={{ backgroundColor: "none" }}
-            _active={{ backgroundColor: "none" }}
-            as="div"
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <Box
+          position="absolute"
+          display={{ base: "flex", md: "none" }}
+          p={8}
+          mt={4}
+        >
+          <UnorderedList
+            flexDirection="column"
+            justifyContent="space-evenly"
+            alignItems="flex-start"
+            height="100%"
+            style={{
+              listStyle: "none",
+            }}
           >
-            <CloseIcon
-              boxSize={6}
-              color="#008000"
-              cursor="pointer"
-              onClick={onOpen}
-            />
-          </DrawerCloseButton>
-        </DrawerContent>
-      </Drawer>
+            {refs.map(({ name, ref }) => (
+              <ListItem
+                className="list-item"
+                transition={" 0.3s ease-in-out"}
+                _hover={{ transform: "scale(1.2) rotate(5deg)" }}
+                key={name}
+                onClick={() => handleMobileClick(ref)}
+                mb={4}
+              >
+                <Link className="link">{name}</Link>
+              </ListItem>
+            ))}
+          </UnorderedList>
+        </Box>
+      )}
 
       {/* Desktop Menu */}
       <UnorderedList
