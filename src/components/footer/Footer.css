@@ -1,22 +1,12 @@
 .footer {
   position: relative;
-  z-index: 10; /* Higher than .squares-bg */
+  z-index: 10;
   pointer-events: none;
 }
 
-/* Icon styles */
-
 .github-icon,
 .linkedin-icon {
-  color: #edf2f2 !important;
   margin-top: 20px;
   pointer-events: auto;
-  transition: 0.3s ease-in;
-}
-
-.linkedin-icon:hover {
-  color: #0a66c2 !important;
-}
-.github-icon:hover {
-  color: #6b7280 !important;
+  transition: 0.5s ease-in-out;
 }

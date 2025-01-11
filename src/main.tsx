@@ -23,6 +23,7 @@ const theme = extendTheme({
     sm: "320px",
     md: "769px",
     lg: "960px",
+    laptop: "1024",
     xl: "1200px",
     "2xl": "1536px",
   },

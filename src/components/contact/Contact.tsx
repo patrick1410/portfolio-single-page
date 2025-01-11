@@ -9,6 +9,7 @@ import {
   Button,
   Center,
   Icon,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import { LuSendHorizontal } from "react-icons/lu";
@@ -19,6 +20,7 @@ type ContactProps = {
 };
 
 export const Contact = ({ contactRef }: ContactProps) => {
+  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const handleExpand = () => {
@@ -80,9 +82,14 @@ export const Contact = ({ contactRef }: ContactProps) => {
             w={{ sm: "100%", md: "80%", lg: "60%", xl: "50%" }}
             className="submit-btn"
             type="submit"
-            boxShadow="0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
+            boxShadow={
+              isLargerThan1024
+                ? "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
+                : "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.8)"
+            }
             _hover={{
               boxShadow:
+                isLargerThan1024 &&
                 "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
             }}
             display="flex"

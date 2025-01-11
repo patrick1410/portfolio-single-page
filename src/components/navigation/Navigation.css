@@ -12,19 +12,3 @@
   text-decoration: none !important;
   padding: 0 1.5rem;
 }
-
-/* Ensure the icon-wrapper rotates */
-.icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease-in-out; /* Smooth rotation transition */
-}
-
-.icon-wrapper.rotate {
-  transform: rotate(90deg); /* Rotate by 90 degrees when menu is open */
-}
-
-.chakra-icon {
-  transition: transform 0.5s ease-in-out; /* Smooth transition for the icon itself */
-}

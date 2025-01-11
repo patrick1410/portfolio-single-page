@@ -1,6 +1,6 @@
 import "./App.css";
 import { useRef } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import Crosshair from "../crosshair/Crosshair";
 import Squares from "../squares-bg/Squares";
 import { HeaderContainer } from "../containers/HeaderContainer";
@@ -15,6 +15,8 @@ import { Contact } from "../contact/Contact";
 import { Footer } from "../footer/Footer";
 
 export const App = () => {
+  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
+
   const containerRef = useRef(null);
 
   // Navigation refs
@@ -52,8 +54,12 @@ export const App = () => {
 
   return (
     <Box className="app" ref={containerRef}>
-      {/* Effects / Canvas */}
-      <Crosshair containerRef={containerRef} color="#DC143C" />
+      {/* Disable Crosshair on smaller screens */}
+      {isLargerThan1024 && (
+        <Crosshair containerRef={containerRef} color="#DC143C" />
+      )}
+
+      {/* Canvas */}
       <Box className="squares-bg">
         <Squares
           speed={0.5}
