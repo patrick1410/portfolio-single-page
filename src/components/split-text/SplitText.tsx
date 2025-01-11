@@ -33,7 +33,7 @@ const SplitText = ({
 }: SplitTextProps) => {
   const letters = text.split("");
   const [inView, setInView] = useState(false);
-  const ref = useRef();
+  const ref = useRef<HTMLParagraphElement>(null); // Correct ref type
   const animatedCount = useRef(0);
 
   useEffect(() => {
@@ -41,13 +41,13 @@ const SplitText = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(ref.current);
+          if (ref.current) observer.unobserve(ref.current);
         }
       },
       { threshold, rootMargin }
     );
 
-    observer.observe(ref.current);
+    if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
