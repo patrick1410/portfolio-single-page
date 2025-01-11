@@ -9,10 +9,10 @@ import {
   Button,
   Center,
   Icon,
-  Text,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import { LuSendHorizontal } from "react-icons/lu";
+import ShinyText from "../shiny-text/ShinyText";
 
 type ContactProps = {
   contactRef: React.RefObject<HTMLDivElement>;
@@ -78,24 +78,22 @@ export const Contact = ({ contactRef }: ContactProps) => {
         <Center>
           <Button
             w={{ sm: "100%", md: "80%", lg: "60%", xl: "50%" }}
-            className="submit"
+            className="submit-btn"
             type="submit"
-            boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
+            boxShadow="0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
+            _hover={{
+              boxShadow:
+                "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
+            }}
             display="flex"
             alignItems="center"
+            background={"transparent"}
           >
             <Box mr={4}>
-              <Text
-                fontWeight={500}
-                letterSpacing={0.3}
-                textTransform="uppercase"
-                color="#1a202c"
-              >
-                Send
-              </Text>
+              <ShinyText className="submit-text" text="Send" speed={2} />
             </Box>
             <Box>
-              <Icon color="#1a202c" as={LuSendHorizontal} boxSize={6} />
+              <Icon color="#EDF2F2" as={LuSendHorizontal} boxSize={6} />
             </Box>
           </Button>
         </Center>

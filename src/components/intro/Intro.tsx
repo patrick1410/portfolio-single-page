@@ -14,6 +14,7 @@ import { Header } from "../header/Header";
 import SplitText from "../split-text/SplitText";
 import resume from "../../assets/resume.pdf";
 import { LuDownload } from "react-icons/lu";
+import ShinyText from "../shiny-text/ShinyText";
 
 // CHECK THESE ANIMATIONS LATER !
 
@@ -23,16 +24,10 @@ type IntroProps = {
 
 export const Intro = ({ introRef }: IntroProps) => {
   const [startSplitText, setStartSplitText] = useState(false);
-  const [startResumeBtn, setStartResumeBtn] = useState(false);
 
   const handleStartSplitText = () => {
     // After the last Text element is done, trigger the SplitText component
     setStartSplitText(true);
-  };
-
-  const handleStartContactBtn = () => {
-    // After SplitText is done, trigger the ContactBtn
-    setStartResumeBtn(true);
   };
 
   return (
@@ -52,7 +47,7 @@ export const Intro = ({ introRef }: IntroProps) => {
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
-            <Box height="24px" marginBottom={2}>
+            <Box height="24px" marginBottom={4}>
               {startSplitText && (
                 <SplitText
                   text="And I'm a Developer"
@@ -65,28 +60,30 @@ export const Intro = ({ introRef }: IntroProps) => {
                   easing="easeOutCubic"
                   threshold={0.2}
                   rootMargin="-50px"
-                  onLetterAnimationComplete={handleStartContactBtn}
                 />
               )}
             </Box>
-            <Box height="40px" className="resume-wrapper">
-              {startResumeBtn && (
-                <Button
-                  as="a"
-                  download
-                  href={resume}
-                  className="animate__animated animate__backInUp resume-btn"
-                  fontWeight={500}
-                  boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
-                  letterSpacing={0.3}
-                  color="#1a202c"
-                >
-                  Download resume
-                  <Box ml={4}>
-                    <Icon color="#1a202c" as={LuDownload} boxSize={6} />
-                  </Box>
-                </Button>
-              )}
+            <Box>
+              <Button
+                as="a"
+                download
+                href={resume}
+                className="resume-btn"
+                fontWeight={500}
+                boxShadow="0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
+                _hover={{
+                  boxShadow:
+                    "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
+                }}
+                letterSpacing={0.3}
+                background={"transparent"}
+              >
+                <ShinyText className="resume-text" text={"Download resume"} />
+
+                <Box ml={4}>
+                  <Icon color="#EDF2F2" as={LuDownload} boxSize={6} />
+                </Box>
+              </Button>
             </Box>
           </Flex>
           <Avatar
