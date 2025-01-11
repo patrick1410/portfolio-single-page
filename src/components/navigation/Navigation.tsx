@@ -9,6 +9,19 @@ type NavigationProps = {
 
 export const Navigation = ({ handleScroll }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [animating, setAnimating] = useState(false);
+
+  // Handle when the fade-out animation ends
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setAnimating(false); // Hide the component once fade-out is done
+    }
+  };
+
+  // If the menu is opening, set animating to true
+  if (isOpen && !animating) {
+    setAnimating(true);
+  }
 
   type Section = {
     name: string;
@@ -32,7 +45,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
     <Flex
       as="nav"
       className="animate__animated animate__fadeInDown"
-      py={10}
+      py={{ base: 0, md: 10 }}
       justifyContent={{ base: "flex-end", md: "center" }}
     >
       {/* Mobile Icons */}
@@ -41,29 +54,48 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
         mr={8}
         cursor="pointer"
         pointerEvents="auto"
+        position="relative"
+        width="40px"
+        mt={10}
       >
-        {isOpen ? (
-          <CloseIcon
-            onClick={() => setIsOpen(!isOpen)}
-            color="#008000"
-            boxSize={8}
-          />
-        ) : (
+        <Box
+          position="absolute"
+          transition="opacity 1.5s ease-in-out"
+          opacity={isOpen ? 0 : 1} // Fade out when isOpen
+          visibility={isOpen ? "hidden" : "visible"}
+        >
           <HamburgerIcon
             onClick={() => setIsOpen(!isOpen)}
             color="#008000"
             boxSize={8}
           />
-        )}
+        </Box>
+
+        <Box
+          position="absolute"
+          transition="opacity 1.5s ease-in-out"
+          opacity={isOpen ? 1 : 0} // Fade in when isOpen
+          visibility={isOpen ? "visible" : "hidden"}
+        >
+          <CloseIcon
+            onClick={() => setIsOpen(!isOpen)}
+            color="#008000"
+            boxSize={8}
+          />
+        </Box>
       </Box>
 
       {/* Mobile Menu */}
-      {isOpen && (
+      {animating && (
         <Box
+          className={`animate__animated ${
+            isOpen ? "animate__fadeInRight" : "animate__fadeOutRight"
+          }`}
           position="absolute"
           display={{ base: "flex", md: "none" }}
           p={8}
-          mt={4}
+          mt={14}
+          onAnimationEnd={handleAnimationEnd} // Trigger when animation ends
         >
           <UnorderedList
             flexDirection="column"
@@ -82,6 +114,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
                 key={name}
                 onClick={() => handleMobileClick(ref)}
                 mb={4}
+                mr={2}
               >
                 <Link className="link">{name}</Link>
               </ListItem>

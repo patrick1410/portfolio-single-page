@@ -34,7 +34,13 @@ export const Contact = ({ contactRef }: ContactProps) => {
       className="contact animate__animated animate__fadeInLeft"
       pt={20}
     >
-      <Box w="25%" m="auto" ref={contactRef}>
+      <Box
+        display={"flex"}
+        flexDir={"column"}
+        w={{ base: "80%", sm: "60%", md: "40%", lg: "30%", xl: "25%" }}
+        m="auto"
+        ref={contactRef}
+      >
         <Header text="Contact" />
         <FormLabel className="label" htmlFor="fullName">
           Full name:
@@ -71,7 +77,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
         />
         <Center>
           <Button
-            w="50%"
+            w={{ sm: "100%", md: "80%", lg: "60%", xl: "50%" }}
             className="submit"
             type="submit"
             boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
