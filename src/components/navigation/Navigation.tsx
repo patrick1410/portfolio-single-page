@@ -53,12 +53,12 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
     <Flex
       as="nav"
       className="animate__animated animate__fadeInDown"
-      py={{ base: 0, md: 10 }}
-      justifyContent={{ base: "flex-end", md: "center" }}
+      py={{ base: 0, laptop: 10 }}
+      justifyContent={{ base: "flex-end", laptop: "center" }}
     >
       {/* Mobile Icons */}
       <Box
-        display={{ base: "flex", md: "none" }}
+        display={{ base: "flex", laptop: "none" }}
         mr={8}
         cursor="pointer"
         pointerEvents="auto"
@@ -100,7 +100,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
             isOpen ? "animate__fadeInRight" : "animate__fadeOutRight"
           }`}
           position="absolute"
-          display={{ base: "flex", md: "none" }}
+          display={{ base: "flex", laptop: "none" }}
           p={8}
           mt={14}
           onAnimationEnd={handleAnimationEnd} // Trigger when animation ends
@@ -131,7 +131,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
 
       {/* Desktop Menu */}
       <UnorderedList
-        display={{ base: "none", md: "flex" }}
+        display={{ base: "none", laptop: "flex" }}
         listStyleType="none"
         justifyContent="space-between"
         alignItems="center"
