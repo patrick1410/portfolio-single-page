@@ -34,7 +34,10 @@ export const Contact = ({ contactRef }: ContactProps) => {
     <FormControl
       as="form"
       ref={contactRef}
-      className={`contact animate__animated ${inView && "animate__fadeInLeft"}`}
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
+      className={`animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
     >

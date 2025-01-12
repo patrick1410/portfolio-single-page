@@ -1,4 +1,3 @@
-import "./Projects.css";
 import { useObserver } from "../../hooks/useObserver";
 import { Box, SimpleGrid, Text, Image, Link } from "@chakra-ui/react";
 import { Header } from "../header/Header";
@@ -14,9 +13,10 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
   return (
     <Box
       ref={projectsRef}
-      className={`projects animate__animated ${
-        inView && "animate__fadeInRight"
-      }`}
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
+      className={`animate__animated ${inView && "animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
       mb={{ base: 10, laptop: 0 }}
@@ -36,7 +36,7 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
               p={4}
               key={title}
             >
-              <Text className="text" textAlign="center">
+              <Text p={4} color={"#1a202c"} textAlign="center">
                 {title}
               </Text>
               <Box
@@ -56,7 +56,9 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
                   />
                 </Link>
               </Box>
-              <Text className="text">{description}</Text>
+              <Text p={4} color={"#1a202c"}>
+                {description}
+              </Text>
             </Box>
           ))}
         </SimpleGrid>

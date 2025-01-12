@@ -1,4 +1,3 @@
-import "./About.css";
 import { useObserver } from "../../hooks/useObserver";
 import { Box, Text } from "@chakra-ui/react";
 import { Header } from "../header/Header";
@@ -12,8 +11,11 @@ export const About = ({ aboutRef }: AboutProps) => {
 
   return (
     <Box
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
       ref={aboutRef}
-      className={`about animate__animated ${inView && "animate__fadeInRight"}`}
+      className={`animate__animated ${inView && "animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
     >

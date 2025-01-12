@@ -12,11 +12,12 @@ export const Footer = () => {
   return (
     <Box
       ref={footerRef}
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
       w={{ base: "80%", sm: "60%", md: "40%", lg: "30%", xl: "25%" }}
       m="auto"
-      className={`footer animate__animated ${
-        inView && " animate__fadeInRight"
-      }`}
+      className={`animate__animated ${inView && " animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={20}
       pb={10}

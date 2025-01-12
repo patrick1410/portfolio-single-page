@@ -1,4 +1,3 @@
-import "./Skills.css";
 import { useObserver } from "../../hooks/useObserver";
 import { Box, SimpleGrid, Flex, Text, Image } from "@chakra-ui/react";
 import { Header } from "../header/Header";
@@ -14,6 +13,9 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
   return (
     <Box
       ref={skillsRef}
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
       className={`skills animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
@@ -35,6 +37,7 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
               py="0.5rem"
               key={name}
               boxShadow="-4px 6px 15px rgba(255, 255, 255, 0.5)"
+              borderRadius="0.5rem"
             >
               <Box>
                 <Image h="48px" w="48px" src={icon} alt={name} />

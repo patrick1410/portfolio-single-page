@@ -36,6 +36,9 @@ export const Intro = ({ introRef }: IntroProps) => {
   return (
     <Box
       ref={introRef}
+      position="relative"
+      zIndex={10}
+      pointerEvents="none"
       className={`animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 10, laptop: 20 }}
