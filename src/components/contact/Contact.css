@@ -8,6 +8,11 @@
   font-style: italic;
 }
 
+.input:focus-visible {
+  border-color: #008000 !important;
+  box-shadow: 0 0 0 1px #008000 !important;
+}
+
 .label {
   display: inline-block !important;
   margin-bottom: 0.5rem !important;

@@ -62,6 +62,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
           Email address:
         </FormLabel>
         <Input
+          autoComplete="off"
           id="email"
           className="input"
           type="email"
