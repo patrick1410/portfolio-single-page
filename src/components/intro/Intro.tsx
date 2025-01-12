@@ -114,7 +114,7 @@ export const Intro = ({ introRef }: IntroProps) => {
             </Box>
           </Flex>
           <Avatar
-            mt={{ base: 20, md: 0 }}
+            my={{ base: 20, md: 0 }}
             className="image"
             w={250}
             h={250}
