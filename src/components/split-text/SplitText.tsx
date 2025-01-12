@@ -12,7 +12,6 @@ type SplitTextProps = {
   delay?: number;
   animationFrom?: Animation;
   animationTo?: Animation;
-  easing?: string;
   threshold?: number;
   rootMargin?: string;
   textAlign?: "left" | "center" | "right";
@@ -25,7 +24,6 @@ const SplitText = ({
   delay = 100,
   animationFrom = { opacity: 0, transform: "translate3d(0,40px,0)" },
   animationTo = { opacity: 1, transform: "translate3d(0,0,0)" },
-  easing = "easeOutCubic",
   threshold = 0.1,
   rootMargin = "-100px",
   textAlign = "left",
@@ -50,26 +48,25 @@ const SplitText = ({
     if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [threshold, rootMargin, inView]);
 
   const springs = useSprings(
     letters.length,
     letters.map((_, i) => ({
       from: animationFrom,
-      to: inView
-        ? async (next) => {
-            await next(animationTo);
-            animatedCount.current += 1;
-            if (
-              animatedCount.current === letters.length &&
-              onLetterAnimationComplete
-            ) {
-              onLetterAnimationComplete();
-            }
-          }
-        : animationFrom,
+      to: (next: (props: Animation) => void) => {
+        next(animationTo);
+        animatedCount.current += 1;
+
+        if (
+          animatedCount.current === letters.length &&
+          onLetterAnimationComplete
+        ) {
+          onLetterAnimationComplete();
+        }
+      },
       delay: i * delay,
-      config: { easing },
+      config: { tension: 200, friction: 30 }, // Customize easing here
     }))
   );
 

@@ -54,29 +54,25 @@ export const Intro = ({ introRef }: IntroProps) => {
             <Header text="Intro" />
             <Text>Hello World!</Text>
             <Text>My name is Patrick Mankaryous</Text>
-            {isLargerThan1024 ? (
-              <Box height="24px" marginBottom={4}>
-                {startSplitText && (
-                  <SplitText
-                    text="And I'm a Developer"
-                    delay={50}
-                    animationFrom={{
-                      opacity: 0,
-                      transform: "translate3d(0,50px,0)",
-                    }}
-                    animationTo={{
-                      opacity: 1,
-                      transform: "translate3d(0,0,0)",
-                    }}
-                    easing="easeOutCubic"
-                    threshold={0.2}
-                    rootMargin="-50px"
-                  />
-                )}
-              </Box>
-            ) : (
-              <Text mb={4}>And I'm a Developer</Text>
-            )}
+
+            <Box height="24px" marginBottom={4}>
+              {startSplitText && (
+                <SplitText
+                  text="And I'm a Developer"
+                  delay={50}
+                  animationFrom={{
+                    opacity: 0,
+                    transform: "translate3d(0,50px,0)",
+                  }}
+                  animationTo={{
+                    opacity: 1,
+                    transform: "translate3d(0,0,0)",
+                  }}
+                  threshold={0.2}
+                  rootMargin="-50px"
+                />
+              )}
+            </Box>
 
             <Box>
               <Button
