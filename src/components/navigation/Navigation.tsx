@@ -1,13 +1,6 @@
 import "./Navigation.css";
 import { useState } from "react";
-import {
-  UnorderedList,
-  ListItem,
-  Link,
-  Flex,
-  Box,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { UnorderedList, ListItem, Link, Flex, Box } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 type NavigationProps = {
@@ -15,7 +8,6 @@ type NavigationProps = {
 };
 
 export const Navigation = ({ handleScroll }: NavigationProps) => {
-  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
   const [isOpen, setIsOpen] = useState(false);
   const [animating, setAnimating] = useState(false);
 
@@ -103,7 +95,7 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
           display={{ base: "flex", laptop: "none" }}
           p={8}
           mt={14}
-          onAnimationEnd={handleAnimationEnd} // Trigger when animation ends
+          onAnimationEnd={handleAnimationEnd}
         >
           <UnorderedList
             flexDirection="column"
@@ -141,9 +133,9 @@ export const Navigation = ({ handleScroll }: NavigationProps) => {
         {refs.map(({ name, ref }) => (
           <ListItem
             className="list-item"
-            transition={isLargerThan1024 ? "0.3s ease-in-out" : "none"}
+            transition={{ laptop: "0.3s ease-in-out" }}
             _hover={{
-              transform: isLargerThan1024 ? "scale(1.2) rotate(-5deg)" : "none",
+              transform: { laptop: "scale(1.2) rotate(-5deg)" },
             }}
             key={name}
             onClick={() => handleScroll(ref)}

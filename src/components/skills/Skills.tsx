@@ -1,4 +1,5 @@
 import "./Skills.css";
+import { useObserver } from "../../hooks/useObserver";
 import { Box, SimpleGrid, Flex, Text, Image } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import { skills } from "./skillsList";
@@ -8,10 +9,13 @@ type SkillsProps = {
 };
 
 export const Skills = ({ skillsRef }: SkillsProps) => {
+  const inView = useObserver(skillsRef);
+
   return (
     <Box
       ref={skillsRef}
-      className="skills animate__animated animate__fadeInLeft"
+      className={`skills animate__animated ${inView && "animate__fadeInLeft"}`}
+      visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
       mb={{ base: 10, laptop: 0 }}
     >

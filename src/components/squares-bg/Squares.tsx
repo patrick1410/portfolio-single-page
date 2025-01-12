@@ -1,8 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import "./Squares.css";
 
-// OPTIMIZE THIS FOR MOBILE!
-
 const Squares = ({
   direction = "right",
   speed = 1,

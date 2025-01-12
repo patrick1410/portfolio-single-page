@@ -1,5 +1,6 @@
 import "./Contact.css";
 import { useRef } from "react";
+import { useObserver } from "../../hooks/useObserver";
 import {
   Box,
   FormControl,
@@ -9,7 +10,6 @@ import {
   Button,
   Center,
   Icon,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import { LuSendHorizontal } from "react-icons/lu";
@@ -20,8 +20,8 @@ type ContactProps = {
 };
 
 export const Contact = ({ contactRef }: ContactProps) => {
-  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const inView = useObserver(contactRef);
 
   const handleExpand = () => {
     if (messageRef.current) {
@@ -33,7 +33,9 @@ export const Contact = ({ contactRef }: ContactProps) => {
   return (
     <FormControl
       as="form"
-      className="contact animate__animated animate__fadeInLeft"
+      ref={contactRef}
+      className={`contact animate__animated ${inView && "animate__fadeInLeft"}`}
+      visibility={inView ? "visible" : "hidden"}
       pt={{ base: 3, laptop: 20 }}
     >
       <Box
@@ -41,7 +43,6 @@ export const Contact = ({ contactRef }: ContactProps) => {
         flexDir={"column"}
         w={{ base: "80%", sm: "60%", md: "40%", lg: "30%", xl: "25%" }}
         m="auto"
-        ref={contactRef}
       >
         <Header text="Contact" />
         <FormLabel className="label" htmlFor="fullName">
@@ -82,16 +83,19 @@ export const Contact = ({ contactRef }: ContactProps) => {
             w={{ sm: "100%", md: "80%", lg: "60%", xl: "50%" }}
             className="submit-btn"
             type="submit"
-            boxShadow={
-              isLargerThan1024
-                ? "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
-                : "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.8)"
-            }
+            boxShadow={{
+              base: "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.8)",
+              laptop:
+                "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)",
+            }}
             _hover={{
-              boxShadow:
-                isLargerThan1024 &&
-                "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
-              transform: isLargerThan1024 && " translateY(-5px)",
+              boxShadow: {
+                laptop:
+                  "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)",
+              },
+              transform: {
+                laptop: "translateY(-5px)",
+              },
             }}
             display="flex"
             alignItems="center"

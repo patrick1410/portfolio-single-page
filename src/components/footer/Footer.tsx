@@ -1,17 +1,23 @@
 import "./Footer.css";
-import { Box, Text, Link, Icon, Flex, useMediaQuery } from "@chakra-ui/react";
+import { useRef } from "react";
+import { useObserver } from "../../hooks/useObserver";
+import { Box, Text, Link, Icon, Flex } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const Footer = () => {
-  const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
-
   const year = new Date().getFullYear();
+  const footerRef = useRef(null);
+  const inView = useObserver(footerRef);
 
   return (
     <Box
+      ref={footerRef}
       w={{ base: "80%", sm: "60%", md: "40%", lg: "30%", xl: "25%" }}
       m="auto"
-      className="footer animate__animated animate__fadeInUp"
+      className={`footer animate__animated ${
+        inView && " animate__fadeInRight"
+      }`}
+      visibility={inView ? "visible" : "hidden"}
       pt={20}
       pb={10}
     >
@@ -34,7 +40,7 @@ export const Footer = () => {
           <Icon
             color={{ base: "#6b7280 !important", laptop: "#edf2f2 !important" }}
             _hover={{
-              color: isLargerThan1024 ? "#6b7280 !important" : "inherit", // Apply color only if screen is larger than 1024px
+              color: { base: "inherit", laptop: "#6b7280 !important" },
             }}
             className="github-icon"
             as={FaGithub}
@@ -45,7 +51,7 @@ export const Footer = () => {
           <Icon
             color={{ base: "#0a66c2 !important", laptop: "#edf2f2 !important" }}
             _hover={{
-              color: isLargerThan1024 ? "#0a66c2 !important" : "inherit", // Apply color only if screen is larger than 1024px
+              color: { base: "inherit", laptop: "#0a66c2 !important" },
             }}
             className="linkedin-icon"
             as={FaLinkedin}

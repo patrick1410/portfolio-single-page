@@ -16,8 +16,7 @@ import SplitText from "../split-text/SplitText";
 import resume from "../../assets/resume.pdf";
 import { LuDownload } from "react-icons/lu";
 import ShinyText from "../shiny-text/ShinyText";
-
-// CHECK THESE ANIMATIONS LATER !
+import { useObserver } from "../../hooks/useObserver";
 
 type IntroProps = {
   introRef: React.RefObject<HTMLDivElement>;
@@ -27,15 +26,18 @@ export const Intro = ({ introRef }: IntroProps) => {
   const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
   const [startSplitText, setStartSplitText] = useState(false);
 
+  const inView = useObserver(introRef);
+
+  // Trigger the SplitText component after HStack animation
   const handleStartSplitText = () => {
-    // After the last Text element is done, trigger the SplitText component
     setStartSplitText(true);
   };
 
   return (
     <Box
       ref={introRef}
-      className="intro"
+      className={`animate__animated ${inView && "animate__fadeInLeft"}`}
+      visibility={inView ? "visible" : "hidden"}
       pt={{ base: 10, laptop: 20 }}
       mb={{ base: 10, laptop: 0 }}
     >
@@ -81,16 +83,17 @@ export const Intro = ({ introRef }: IntroProps) => {
                 href={resume}
                 className="resume-btn"
                 fontWeight={500}
-                boxShadow={
-                  isLargerThan1024
-                    ? "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)"
-                    : "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.8)"
-                }
+                boxShadow={{
+                  base: "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.8)",
+                  laptop:
+                    "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.4)",
+                }}
                 _hover={{
-                  boxShadow:
-                    isLargerThan1024 &&
-                    "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
-                  transform: isLargerThan1024 && " translateY(-5px)",
+                  boxShadow: {
+                    laptop:
+                      "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)",
+                  },
+                  transform: { laptop: " translateY(-5px)" },
                 }}
                 letterSpacing={0.3}
                 background={"transparent"}
