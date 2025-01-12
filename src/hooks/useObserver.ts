@@ -7,8 +7,6 @@ export const useObserver = (
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    if (!ref.current) return; // Ensure ref exists before observing
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -36,35 +34,5 @@ export const useObserver = (
     };
   }, []);
 
-  return inView; // Ensure the state is returned
+  return inView;
 };
-
-// const [inView, setInView] = useState(false);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           if (entry.intersectionRatio >= 0.1) {
-//             setInView(true);
-//           }
-//         } else {
-//           if (entry.intersectionRatio < 0.1) {
-//             setInView(false);
-//           }
-//         }
-//       },
-//       {
-//         threshold: [0, 0.1],
-//       }
-//     );
-
-//     if (aboutRef.current) {
-//       observer.observe(aboutRef.current);
-//     }
-
-//     return () => {
-//       if (aboutRef.current) observer.unobserve(aboutRef.current);
-//       observer.disconnect();
-//     };
-//   }, []);
