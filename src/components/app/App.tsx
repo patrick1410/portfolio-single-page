@@ -38,17 +38,20 @@ export const App = () => {
     const targetRef = refMap[section];
 
     if (targetRef && targetRef.current) {
-      targetRef.current.scrollIntoView({ behavior: "smooth" });
+      const { top } = targetRef.current.getBoundingClientRect();
+      const offset = 20; // Adjust this value to match the height of your fixed element (like a nav bar)
 
-      // SCROLLS TO THE VERY TOP
+      window.scrollTo({
+        top: top + window.scrollY - offset, // Add the offset to scroll above the element
+        behavior: "smooth",
+      });
+
       if (section === "introRef") {
         window.scrollTo({
           top: 0,
           behavior: "smooth",
         });
       }
-
-      // ADD PT={20} TO EVERY SECTION COMPONENT FOR SMOOTH SCROLLINTOVIEW!
     }
   };
 

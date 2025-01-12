@@ -12,7 +12,8 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
     <Box
       ref={skillsRef}
       className="skills animate__animated animate__fadeInLeft"
-      pt={20}
+      pt={{ base: 3, laptop: 20 }}
+      mb={{ base: 10, laptop: 0 }}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Skills" />

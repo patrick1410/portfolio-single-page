@@ -11,7 +11,7 @@ export const About = ({ aboutRef }: AboutProps) => {
     <Box
       ref={aboutRef}
       className="about animate__animated animate__fadeInRight"
-      pt={20}
+      pt={{ base: 3, laptop: 20 }}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="About" />

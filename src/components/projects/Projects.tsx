@@ -46,7 +46,8 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
     <Box
       ref={projectsRef}
       className="projects animate__animated animate__fadeInRight"
-      pt={20}
+      pt={{ base: 3, laptop: 20 }}
+      mb={{ base: 10, laptop: 0 }}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Projects" />

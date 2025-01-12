@@ -34,7 +34,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
     <FormControl
       as="form"
       className="contact animate__animated animate__fadeInLeft"
-      pt={20}
+      pt={{ base: 3, laptop: 20 }}
     >
       <Box
         display={"flex"}
