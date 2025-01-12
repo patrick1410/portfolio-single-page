@@ -1,7 +1,3 @@
-/* POINTER EVENTS SHOULD BE NONE IN THE WRAPPER SO THE SQUARES ARE FILLED ON HOVER */
-/* IF SOMETHING CLICKABLE DOESNT WORK PUT POINTER EVENTS TO AUTO (IN THE CHILD) */
-/* DELETE THE POINTER-EVENTS:NONE LATER (MAYBE) LIKE IN THE HOME ROUTE */
-
 .intro {
   position: relative;
   z-index: 10;
@@ -10,11 +6,10 @@
 
 .resume-btn {
   pointer-events: auto;
-  transition: transform 0.3s ease-in-out !important; /* Smooth transition */
+  transition: transform 0.3s ease-in-out !important;
 }
 .resume-btn:hover {
   background: transparent !important;
-  transform: translateY(-5px); /* Move the button up */
 }
 
 .resume-text {
@@ -28,17 +23,17 @@
   height: 250px;
   border: 2px solid #008000 !important;
   animation: rock 3s ease-in-out infinite;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 1); /* White glow effect */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 1);
 }
 
 @keyframes rock {
   0% {
-    transform: rotate(5deg); /* Starting position */
+    transform: rotate(5deg);
   }
   50% {
-    transform: rotate(-5deg); /* Rotate to the left */
+    transform: rotate(-5deg);
   }
   100% {
-    transform: rotate(5deg); /* Rotate back to the right */
+    transform: rotate(5deg);
   }
 }

@@ -1,6 +1,6 @@
 .projects {
   position: relative;
-  z-index: 10; /* Higher than .squares-bg */
+  z-index: 10;
   pointer-events: none;
 }
 

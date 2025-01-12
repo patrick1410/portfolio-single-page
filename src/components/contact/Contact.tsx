@@ -91,6 +91,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
               boxShadow:
                 isLargerThan1024 &&
                 "0 8px 24px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(255, 255, 255, 0.6)", // Brighter, same size
+              transform: isLargerThan1024 && " translateY(-5px)",
             }}
             display="flex"
             alignItems="center"
