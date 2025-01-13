@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useObserver } from "../../hooks/useObserver";
 import {
   Box,
@@ -20,6 +20,10 @@ type ContactProps = {
 };
 
 export const Contact = ({ contactRef }: ContactProps) => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const inView = useObserver(contactRef);
 
@@ -29,6 +33,17 @@ export const Contact = ({ contactRef }: ContactProps) => {
       messageRef.current.style.height = `${messageRef.current.scrollHeight}px`; // Set height based on content
     }
   };
+
+  const changeFn = (
+    set: React.Dispatch<React.SetStateAction<string>>,
+    value: string
+  ) => {
+    set(value);
+  };
+
+  console.log("Full name:", fullName);
+  console.log("Email:", email);
+  console.log("Message:", message);
 
   return (
     <FormControl
@@ -57,6 +72,8 @@ export const Contact = ({ contactRef }: ContactProps) => {
           type="text"
           placeholder="John Doe"
           required
+          value={fullName}
+          onChange={(e) => changeFn(setFullName, e.target.value)}
         />
         <FormLabel className="label" htmlFor="email">
           Email address:
@@ -68,6 +85,8 @@ export const Contact = ({ contactRef }: ContactProps) => {
           type="email"
           placeholder="johndoe@example.com"
           required
+          value={email}
+          onChange={(e) => changeFn(setEmail, e.target.value)}
         />
         <FormLabel className="label" htmlFor="message">
           Message:
@@ -81,6 +100,8 @@ export const Contact = ({ contactRef }: ContactProps) => {
           ref={messageRef}
           onInput={handleExpand}
           resize="none"
+          value={message}
+          onChange={(e) => changeFn(setMessage, e.target.value)}
         />
         <Center>
           <Button

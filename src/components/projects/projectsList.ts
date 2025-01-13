@@ -37,6 +37,6 @@ export const projects: projectsProps[] = [
     title: "BuddyApp",
     description:
       "BuddyApp (In Progress): A professional self-help chat application built with React Native as a volunteer project. It will soon launch on the App Store.",
-    link: "TBA",
+    link: "",
   },
 ];
