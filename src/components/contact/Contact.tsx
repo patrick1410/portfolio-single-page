@@ -41,10 +41,6 @@ export const Contact = ({ contactRef }: ContactProps) => {
     set(value);
   };
 
-  console.log("Full name:", fullName);
-  console.log("Email:", email);
-  console.log("Message:", message);
-
   return (
     <FormControl
       as="form"
