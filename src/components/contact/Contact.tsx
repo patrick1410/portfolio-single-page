@@ -12,7 +12,7 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
-import { LuSendHorizontal } from "react-icons/lu";
+import { SendHorizonal } from "lucide-react";
 import ShinyText from "../shiny-text/ShinyText";
 
 type ContactProps = {
@@ -39,7 +39,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
       pointerEvents="none"
       className={`animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
-      pt={{ base: 3, laptop: 20 }}
+      pt={20}
     >
       <Box
         display={"flex"}
@@ -105,11 +105,11 @@ export const Contact = ({ contactRef }: ContactProps) => {
             alignItems="center"
             background={"transparent"}
           >
-            <Box mr={4}>
+            <Box>
               <ShinyText className="submit-text" text="Send" speed={2} />
             </Box>
-            <Box>
-              <Icon color="#EDF2F2" as={LuSendHorizontal} boxSize={6} />
+            <Box className="icon" ml={4}>
+              <Icon color="#EDF2F2" as={SendHorizonal} boxSize={6} />
             </Box>
           </Button>
         </Center>

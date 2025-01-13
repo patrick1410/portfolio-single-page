@@ -17,11 +17,12 @@ export const About = ({ aboutRef }: AboutProps) => {
       ref={aboutRef}
       className={`animate__animated ${inView && "animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
-      pt={{ base: 3, laptop: 20 }}
+      pt={20}
+      mb={10}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="About" />
-        <Box w={{ base: "100%", md: "75%" }} mb={10}>
+        <Box w={{ base: "100%", md: "75%" }}>
           <Text mb={2}>
             Hi, I'm Patrick, a dedicated software developer from Amsterdam 💻📍.
             I have a passion for creating innovative and efficient solutions

@@ -19,8 +19,7 @@ export const Footer = () => {
       m="auto"
       className={`animate__animated ${inView && " animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
-      pt={20}
-      pb={10}
+      py={10}
     >
       <Box>
         <Text textAlign="center">

@@ -18,8 +18,8 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
       pointerEvents="none"
       className={`animate__animated ${inView && "animate__fadeInRight"}`}
       visibility={inView ? "visible" : "hidden"}
-      pt={{ base: 3, laptop: 20 }}
-      mb={{ base: 10, laptop: 0 }}
+      pt={20}
+      mb={10}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Projects" />
@@ -36,7 +36,13 @@ export const Projects = ({ projectsRef }: ProjectsProps) => {
               p={4}
               key={title}
             >
-              <Text p={4} color={"#1a202c"} textAlign="center">
+              <Text
+                p={4}
+                color={"#1a202c"}
+                textAlign="center"
+                textTransform={"uppercase"}
+                fontWeight={500}
+              >
                 {title}
               </Text>
               <Box

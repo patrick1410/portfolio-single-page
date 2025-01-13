@@ -21,6 +21,7 @@ const theme = extendTheme({
   breakpoints: {
     base: "0px",
     sm: "320px",
+    mobile: "480px",
     md: "769px",
     lg: "960px",
     laptop: "1024px",

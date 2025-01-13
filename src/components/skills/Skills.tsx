@@ -18,8 +18,8 @@ export const Skills = ({ skillsRef }: SkillsProps) => {
       pointerEvents="none"
       className={`skills animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
-      pt={{ base: 3, laptop: 20 }}
-      mb={{ base: 10, laptop: 0 }}
+      pt={20}
+      mb={10}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <Header text="Skills" />

@@ -14,7 +14,7 @@ import {
 import { Header } from "../header/Header";
 import SplitText from "../split-text/SplitText";
 import resume from "../../assets/resume.pdf";
-import { LuDownload } from "react-icons/lu";
+import { Download } from "lucide-react";
 import ShinyText from "../shiny-text/ShinyText";
 import { useObserver } from "../../hooks/useObserver";
 
@@ -42,7 +42,6 @@ export const Intro = ({ introRef }: IntroProps) => {
       className={`animate__animated ${inView && "animate__fadeInLeft"}`}
       visibility={inView ? "visible" : "hidden"}
       pt={{ base: 10, laptop: 20 }}
-      mb={{ base: 10, laptop: 0 }}
     >
       <Box w={{ base: "80%", md: "60%" }} m="auto">
         <HStack
@@ -107,14 +106,15 @@ export const Intro = ({ introRef }: IntroProps) => {
                   speed={isLargerThan1024 ? 5 : 2}
                 />
 
-                <Box ml={4}>
-                  <Icon color="#EDF2F2" as={LuDownload} boxSize={6} />
+                <Box ml={4} className="icon">
+                  <Icon color="#EDF2F2" as={Download} boxSize={6} />
                 </Box>
               </Button>
             </Box>
           </Flex>
           <Avatar
-            my={{ base: 20, md: 0 }}
+            mt={{ base: 20, md: 10, laptop: 0 }}
+            mb={10}
             className="image"
             w={250}
             h={250}

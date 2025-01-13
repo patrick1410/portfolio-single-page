@@ -39,10 +39,10 @@ export const App = () => {
 
     if (targetRef && targetRef.current) {
       const { top } = targetRef.current.getBoundingClientRect();
-      const offset = 20; // Adjust this value to match the height of your fixed element (like a nav bar)
+      const offset = 0;
 
       window.scrollTo({
-        top: top + window.scrollY - offset, // Add the offset to scroll above the element
+        top: top + window.scrollY - offset,
         behavior: "smooth",
       });
 
