@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.env
+
+/php/PHPMailer-master/language/
+
+# Ignore composer files (if you're not using Composer)
+composer.json
+composer.lock

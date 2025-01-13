@@ -43,6 +43,8 @@ export const Contact = ({ contactRef }: ContactProps) => {
 
   return (
     <FormControl
+      action="http://localhost:8000/send_mail.php"
+      method="POST"
       as="form"
       ref={contactRef}
       position="relative"
@@ -64,6 +66,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
         </FormLabel>
         <Input
           className="input"
+          name="fullName"
           id="fullName"
           type="text"
           placeholder="John Doe"
@@ -76,6 +79,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
         </FormLabel>
         <Input
           autoComplete="off"
+          name="email"
           id="email"
           className="input"
           type="email"
@@ -88,6 +92,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
           Message:
         </FormLabel>
         <Textarea
+          name="message"
           id="message"
           className="input"
           overflow="hidden"
