@@ -1,7 +1,14 @@
 <?php
 
 // Set CORS headers to allow access from specific origins
-header("Access-Control-Allow-Origin: http://localhost:5173"); // Allowing requests from localhost:5173 (development mode)
+$allowed_origins = [
+    'http://localhost:5173',                // Development mode
+    'https://portfolio-sp-pm.netlify.app',  // Production mode
+];
+
+if (in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)) {
+    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+}
 header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allowing POST and OPTIONS methods for preflight requests
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allowing Content-Type and Authorization headers in the request
 header("Access-Control-Allow-Credentials: true"); // Allowing credentials (cookies, authorization headers, etc.)
