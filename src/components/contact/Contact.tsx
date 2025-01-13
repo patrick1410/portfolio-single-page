@@ -10,6 +10,7 @@ import {
   Button,
   Center,
   Icon,
+  useToast,
 } from "@chakra-ui/react";
 import { Header } from "../header/Header";
 import { SendHorizonal } from "lucide-react";
@@ -20,9 +21,14 @@ type ContactProps = {
 };
 
 export const Contact = ({ contactRef }: ContactProps) => {
+  const toast = useToast();
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [sending, setSending] = useState(false);
+  // const [error, setError] = useState(null);
 
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const inView = useObserver(contactRef);
@@ -41,9 +47,64 @@ export const Contact = ({ contactRef }: ContactProps) => {
     set(value);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setSending(true);
+    // setError(null)
+
+    const formData = {
+      fullName,
+      email,
+      message,
+    };
+
+    try {
+      const response = await fetch("http://localhost:8000/send_mail.php", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Your message has been sent successfully.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        setFullName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        toast({
+          title: "Error sending message.",
+          description: "Something went wrong, please try again later.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      // setError(error);
+      toast({
+        title: "Form submission failed",
+        description:
+          "There was an issue submitting the form. Please check your network connection and try again.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <FormControl
-      action="http://localhost:8000/send_mail.php"
+      onSubmit={handleSubmit}
       method="POST"
       as="form"
       ref={contactRef}
@@ -65,6 +126,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
           Full name:
         </FormLabel>
         <Input
+          autoComplete="off"
           className="input"
           name="fullName"
           id="fullName"
@@ -106,6 +168,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
         />
         <Center>
           <Button
+            disabled={sending}
             w={{ sm: "100%", md: "80%", lg: "60%", xl: "50%" }}
             className="submit-btn"
             type="submit"
