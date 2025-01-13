@@ -28,7 +28,6 @@ export const Contact = ({ contactRef }: ContactProps) => {
   const [message, setMessage] = useState("");
 
   const [sending, setSending] = useState(false);
-  // const [error, setError] = useState(null);
 
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const inView = useObserver(contactRef);
@@ -51,7 +50,6 @@ export const Contact = ({ contactRef }: ContactProps) => {
     e.preventDefault();
 
     setSending(true);
-    // setError(null)
 
     const formData = {
       fullName,
@@ -88,7 +86,6 @@ export const Contact = ({ contactRef }: ContactProps) => {
         });
       }
     } catch (error) {
-      // setError(error);
       toast({
         title: "Form submission failed",
         description:
