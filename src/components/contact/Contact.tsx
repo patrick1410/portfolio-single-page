@@ -42,9 +42,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
   const changeFn = (
     set: React.Dispatch<React.SetStateAction<string>>,
     value: string
-  ) => {
-    set(value);
-  };
+  ) => set(value);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +56,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/send_mail.php", {
+      const response = await fetch("https://formspree.io/f/meoonzrr", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

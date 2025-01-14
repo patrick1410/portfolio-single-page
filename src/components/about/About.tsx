@@ -30,10 +30,10 @@ export const About = ({ aboutRef }: AboutProps) => {
             in the ever-evolving field of technology.
           </Text>
           <Text mb={2}>
-            When I'm not <span style={{ fontWeight: "bold" }}>!coding</span> 🤣,
-            I enjoy watching movies 🎞️ and playing games 🎮 to relax. Gaming
-            helps me unwind while sharpening my problem-solving and strategic
-            thinking skills. I also have a true passion for cooking 👨‍🍳. Creating
+            When I'm <span style={{ fontWeight: "bold" }}>!coding</span> 🤣, I
+            enjoy watching movies 🎞️ and playing games 🎮 to relax. Gaming helps
+            me unwind while sharpening my problem-solving and strategic thinking
+            skills. I also have a true passion for cooking 👨‍🍳. Creating
             flavorful dishes allows me to get creative in the kitchen,
             experimenting with new recipes and flavors.
           </Text>
