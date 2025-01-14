@@ -16,6 +16,8 @@ import { Header } from "../header/Header";
 import { SendHorizonal } from "lucide-react";
 import ShinyText from "../shiny-text/ShinyText";
 
+const FORM_URL = import.meta.env.VITE_FORMSPREE_URL;
+
 type ContactProps = {
   contactRef: React.RefObject<HTMLDivElement>;
 };
@@ -56,7 +58,7 @@ export const Contact = ({ contactRef }: ContactProps) => {
     };
 
     try {
-      const response = await fetch("https://formspree.io/f/meoonzrr", {
+      const response = await fetch(FORM_URL, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
