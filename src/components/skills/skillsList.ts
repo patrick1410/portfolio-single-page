@@ -77,4 +77,16 @@ export const skills: skillsProps[] = [
     name: "Prisma",
     icon: "https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-IndigoSymbol.svg",
   },
+  {
+    name: "Firebase",
+    icon: "https://www.gstatic.com/devrel-devsite/prod/vc12d84b6edb3e25e1619b575cf813e1849a1c95098b711a6c56ab3968c9a4fa9/firebase/images/touchicon-180.png",
+  },
+  {
+    name: "Rust",
+    icon: "https://raw.githubusercontent.com/github/explore/refs/heads/main/topics/rust/rust.png",
+  },
+  {
+    name: "Contentful",
+    icon: "https://raw.githubusercontent.com/github/explore/refs/heads/main/topics/contentful/contentful.png",
+  },
 ];
